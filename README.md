@@ -67,12 +67,12 @@ $ git clone https://github.com/chingu-voyages/v42-bears-team-26
 
 | Name            | Link                                   |
 | --------------- | -------------------------------------- |
-| SuwannaTruss | https://github.com/SuwannaTruss |
-| Fouad | https://github.com/fmtabbara |
+| Suwanna Truss | https://github.com/SuwannaTruss |
+| Fouad Tabbara | https://github.com/fmtabbara |
 | Sandra Ashipala | https://github.com/sandramsc |
 | Marwa Jawad Kadhim | https://github.com/0marwa0 |
-| Stanly | https://github.com/Azuremis |
-| abcd |  https://github.com/abcd |
+| Azuremis | https://github.com/Azuremis |
+| Bassima Ghassan |  https://github.com/BassimaGH |
 
 ## License
 
