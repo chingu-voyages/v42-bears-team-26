@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES6",
+    "noImplicitAny": true,
+    "module": "ES6",
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "allowJs": true,
+    "checkJs": true,
+    "alwaysStrict": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true
+  },
+  "include": ["src"]
+}
