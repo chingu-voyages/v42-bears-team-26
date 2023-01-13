@@ -6,12 +6,10 @@
   "author": "healthhero-team",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc",
-    "tsc:check": "tsc --noEmit",
-    "dev": "tsc && node dist/index.js",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "clean": "rm -rf dist",
+    "tsc:check": "yarn workspaces run tsc:check",
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "clean": "yarn workspaces run clean",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -23,5 +21,9 @@
     "husky": "^8.0.0",
     "prettier": "^2.8.2",
     "typescript": "^4.6.3"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "backend"
+  ]
 }
