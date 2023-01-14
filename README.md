@@ -1,54 +1,54 @@
 <!-- Designed for Chinghu Voyage 42 02.2023 -->
-  <h1 align="center">HealthHero</h1>
+<div align="center">  
+  <h1>HealthHero</h1>
 
-## Application Description
+  <a href="#" title="production's landing page">
+  <!-- <img
+      height="80"
+      width="80"
+      alt="Telemedicine icons created by Darius Dan - Flaticon"
+      src="https://cdn-icons-png.flaticon.com/512/6504/6504504.png"
+    /> -->
+    <img
+      height="80"
+      width="80"
+      alt="Telemedicine icons created by Darius Dan - Flaticon"
+      src="https://cdn-icons-png.flaticon.com/512/7228/7228392.png"
+    />
+  </a>
 
-HealthHero is the smartest way for taking control of your health journey. HealthHero empowers our users with user-friendly tools and data insights all in one place.
+  <h6>HealthHero is the smartest way for taking control of your health journey. <br>
+  HealthHero empowers our users with user-friendly tools and data insights all in one place.<h6>
+</div>
+
+<hr/>
 
 ## Table of Contents
-
-<details>
-<summary>HealthHero</summary>
-
+- [The problem]
+- [The solution]
 - [Application Description](#application-description)
-- [Table of Contents](#table-of-contents)
-- [Prototype](#prototype)
-- [Screenshots](#screenshots)
-- [Figma Wireframe](#figma-wireframe)
+- [Features](#features)
+- [Installation](#installation)
 - [Technology Stack](#technology-stack)
-- [Authors](#authors)
+- [Production documents](#production-documents)
+  - [Prototype](#prototype)
+  - [Screenshots](#screenshots)
+  - [Figma Wireframe](#figma-wireframe)
+  - [Development workflow](#development-workflow)
+- [Contributors](#contributors)
 - [License](#license)
 
-</details>
-
-## Prototype
-
-[View Prototype](https://exampleurl.netlify.app/)
-
-## Screenshots
-
-
-## Technology Stack
-
-| Technology                                                    | Description                                                          |
-| ------------------------------------------------------------- | -------------------------------------------------------------------- |
-| TypeScript                                                      | TypeScript is a free and open source programming language developed and maintained by Microsoft. |
-| React.js                                                      | javaScript library                                                   |
+## Application Description
+HealthHero is the smartest way for taking control of your health journey. HealthHero empowers our users with user-friendly tools and data insights all in one place.
 
 ## Features
-
 - User authentication
 - Tracking medication taking calendar
 - Reminder message
 - Access to Medical test results (organise in categories)
 - Show user statistics about their personal health data + visualisations
-
-
-## Figma Wireframe
-
-[HealthHero wireframes](https://www.figma.com/file/)
-
-## How to use the app
+  
+## Installation
 
 **Step #1** - Clone the project
 
@@ -61,9 +61,28 @@ $ git clone https://github.com/chingu-voyages/v42-bears-team-26
 - Install dependencies: `npm i` OR `yarn`
 
 - To start the webapp, run: `npm start` OR `yarn start`
+  
+## Technology Stack
 
+| Technology                                                    | Description                                                          |
+| ------------------------------------------------------------- | -------------------------------------------------------------------- |
+| TypeScript                                                      | TypeScript is a free and open source programming language developed and maintained by Microsoft. |
+| React.js                                                      | javaScript library                                                   |
 
-## Authors
+## Production documents
+--------
+### Prototype
+
+[View Prototype](https://exampleurl.netlify.app/)
+
+### Screenshots
+
+### Figma Wireframe
+[HealthHero wireframes](https://www.figma.com/file/)
+
+### Development workflow
+[View Development workflow](/development-workflow.md)
+## Contributors
 
 | Name            | Link                                   |
 | --------------- | -------------------------------------- |
