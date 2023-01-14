@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "repository": "https://github.com/chingu-voyages/v42-bears-team-26.git",
+  "author": "healthhero-team",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "yarn build && node dist/index.js",
+    "tsc:check": "tsc --noEmit",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.15",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "16.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-plugin-node": "^11.1.0",
+    "typescript": "^4.9.4"
+  }
+}
