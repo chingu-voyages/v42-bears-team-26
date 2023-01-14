@@ -1,0 +1,1 @@
+{ "extends": "../.eslintrc", "ignorePatterns": "webpack.config.js" }
