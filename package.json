@@ -6,8 +6,6 @@
   "author": "healthhero-team",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --open",
-    "build": "webpack --config webpack.config.js --mode production",
     "tsc:check": "yarn workspaces run tsc:check",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
