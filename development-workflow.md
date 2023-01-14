@@ -1,6 +1,6 @@
 # Development workflow
 
-1. **Ticcket/Issue:** 
+1. **Ticket/Issue:** 
    * Take a note of the issue number of the ticket you will work on.
    * If no ticket exists then create a new ticket and take a note of the issue number'
   
