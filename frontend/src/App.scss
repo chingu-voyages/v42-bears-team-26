@@ -1,0 +1,14 @@
+$default-background: #D3D3D3;
+
+body {
+    height: 100%;
+    background-color: $default-background;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    width: 100%;
+}
