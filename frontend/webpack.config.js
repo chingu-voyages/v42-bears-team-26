@@ -15,6 +15,12 @@ const config = {
   devServer: {
     open: true,
     host: 'localhost',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        pathRewrite: { '^/api': '/' },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
