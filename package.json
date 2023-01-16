@@ -6,7 +6,7 @@
   "author": "healthhero-team",
   "license": "MIT",
   "scripts": {
-    "app": "yarn workspace backend dev & yarn workspace frontend run dev",
+    "app": "concurrently \"yarn workspace backend run dev\" \"yarn workspace frontend run dev\" ",
     "tsc:check": "yarn workspaces run tsc:check",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
+    "concurrently": "^7.6.0",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
