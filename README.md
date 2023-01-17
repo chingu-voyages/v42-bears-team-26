@@ -56,11 +56,15 @@ HealthHero is the smartest way for taking control of your health journey. Health
 $ git clone https://github.com/chingu-voyages/v42-bears-team-26
 ```
 
-**Step #2**
+**Step #2** - to run the webapp
 
-- Install dependencies: `npm i` OR `yarn`
+- Install dependencies: 
+  In the root folder, run `yarn` OR `yarn install`
 
-- To start the webapp, run: `npm start` OR `yarn start`
+- To start the webapp (both frontend and backend):
+  In the root folder, run: `yarn app`
+  This script will start frontend browser automatically, and start backend server on port 4000. 
+  You can open a browser and go to `localhost:4000` to test the server.
   
 ## Technology Stack
 
@@ -73,12 +77,12 @@ $ git clone https://github.com/chingu-voyages/v42-bears-team-26
 --------
 ### Prototype
 
-[View Prototype](https://exampleurl.netlify.app/)
+[View Prototype]()
 
 ### Screenshots
 
 ### Figma Wireframe
-[HealthHero wireframes](https://www.figma.com/file/)
+[HealthHero wireframes](https://www.figma.com/file/lcoe5JVhqRmCz9K0UGfzRH/HealthHero-Wireframes?node-id=41%3A224&t=j7kgEyplFCe2EFc0-0)
 
 ### Development workflow
 [View Development workflow](/development-workflow.md)
