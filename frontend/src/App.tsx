@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.scss'
 
 export const App = () => {
   const req = () => {
@@ -10,7 +9,7 @@ export const App = () => {
 
   return (
     <div className="container">
-      <h1>Health Hero frontend 🚀</h1>
+      <h1 className="text-3xl font-bold">Health Hero frontend 🚀</h1>
       <button onClick={req}>Request</button>
     </div>
   )
