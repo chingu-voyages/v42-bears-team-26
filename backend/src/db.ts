@@ -12,13 +12,15 @@ if (isDevelopmentMode) {
 }
 
 const dbConfig = {
+  host: process.env.PGHOST,
   port: process.env.PGPORT || 5432,
   user: process.env.PGUSER || '',
   password: process.env.PGPASSWORD || '',
+  database: 'healthhero',
 } as ClientConfig
 
 const dbConnect = async () => {
-  const client = new Client(dbConfig)
+  const client = new Client({ ...dbConfig, ssl: true })
 
   try {
     await client.connect()

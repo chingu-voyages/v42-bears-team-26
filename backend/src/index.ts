@@ -1,7 +1,7 @@
-import * as express from 'express'
-import * as morgan from 'morgan'
-import * as swaggerUI from 'swagger-ui-express'
-import * as swaggerDocument from '../src/swagger.json'
+import express from 'express'
+import morgan from 'morgan'
+import swaggerUI from 'swagger-ui-express'
+import swaggerDocument from '../src/swagger.json'
 import { UserRoute, TestResultRoute, MedicationRoute } from './routes'
 import { dbClient } from './db'
 
