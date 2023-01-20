@@ -4,14 +4,15 @@ import swaggerUI from 'swagger-ui-express'
 import swaggerDocument from '../src/swagger.json'
 import { UserRoute, TestResultRoute, MedicationRoute } from './routes'
 import { dbClient } from './db'
+import { isDevelopmentMode } from './utils'
 
 const app = express()
 const PORT = process.env.PORT || 4000
 
 app.use(morgan('combined'))
 
-app.use('/user', UserRoute)
-app.use('/testResults', TestResultRoute)
+app.use('/users', UserRoute)
+app.use('/test-results', TestResultRoute)
 app.use('/medications', MedicationRoute)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
@@ -22,6 +23,7 @@ app.get('/', async (_, res) => {
   })
 })
 
-app.listen(PORT, () =>
+app.listen(PORT, () => {
   console.log(`Server started and listening on port ${PORT} 🔥`)
-)
+  isDevelopmentMode && console.log('http://localhost:4000')
+})

@@ -1,10 +1,9 @@
 import { Client, ClientConfig } from 'pg'
 import * as path from 'path'
 import * as dotenv from 'dotenv'
+import { isDevelopmentMode } from './utils'
 
 let dbClient: Client
-
-const isDevelopmentMode = process.env.NODE_ENV !== 'production'
 
 if (isDevelopmentMode) {
   const envPath = path.resolve(__dirname, '../.env')
