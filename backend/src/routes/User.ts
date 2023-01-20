@@ -1,11 +1,13 @@
 import express = require('express')
-import userMock from '../mocks/userMock'
+import { dbClient } from '../db'
 
 const UserRoute = express.Router()
 
-UserRoute.get('/', (_, res) => {
+UserRoute.get('/', async (_, res) => {
+  const { rows: users } = await dbClient.query('select * from users')
+
   res.send({
-    res: userMock,
+    res: users,
   })
 })
 

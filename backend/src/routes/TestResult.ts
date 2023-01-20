@@ -1,11 +1,13 @@
 import express = require('express')
-import testMock from '../mocks/testMock'
+import { dbClient } from '../db'
 
 const TestResultRoute = express.Router()
 
-TestResultRoute.get('/', (_, res) => {
+TestResultRoute.get('/', async (_, res) => {
+  const { rows: results } = await dbClient.query('select * from test_results')
+
   res.send({
-    res: testMock,
+    res: results,
   })
 })
 
