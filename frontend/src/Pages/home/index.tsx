@@ -10,6 +10,11 @@ export const HomePage = () => {
           Test results page
         </Link>
       </div>
+      <div>
+        <Link className="font-bold hover:text-green-500" to="/medication">
+          Medication Tracker
+        </Link>
+      </div>
     </>
   )
 }
