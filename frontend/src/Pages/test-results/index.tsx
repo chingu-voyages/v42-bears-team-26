@@ -4,7 +4,7 @@ import SearchInput from '../../components/searchInput'
 import CostumePage from '../../components/customPage'
 import axios from 'axios'
 export const TestResultsPage = () => {
-  const thead = ['Name', 'Description', 'Data']
+  const thead = ['Name', 'Description', 'Date']
 
   const [testResult, setTestResult] = useState<
     Array<{
