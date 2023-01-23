@@ -18,6 +18,10 @@ module.exports = {
       linearColor_pink: '#E0C7C4',
       linearColor_green: '#1D7D81',
     },
+    fontFamily: {
+      dmsans: ["Poppins", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
+    }
   },
   plugins: [],
 }
