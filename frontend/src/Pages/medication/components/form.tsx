@@ -98,6 +98,26 @@ export const Form = ({ title, onOk }: { title: string; onOk: () => void }) => {
 
           <div className="inline-block">
             <Select
+              options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
+              onChange={() => {
+                return undefined
+              }}
+            />
+          </div>
+        </FormSection>
+        <FormSection>
+          <FormFieldLabel label="Frequency" />
+          <div className="mb-2 inline-block mr-3">
+            <Select
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={() => {
+                return undefined
+              }}
+            />
+          </div>
+
+          <div className="inline-block">
+            <Select
               options={['Hourly', 'Daily', 'Weekly']}
               onChange={() => {
                 return undefined
