@@ -1,7 +1,6 @@
 import React from 'react'
 
-const feature_img = require('../imgs/feature_img.jpg')
-// import feature_img from '../imgs/feature_img.jpg'
+import feature_img from '../imgs/feature_img.jpg'
 
 function FeaturesSection() {
   return (

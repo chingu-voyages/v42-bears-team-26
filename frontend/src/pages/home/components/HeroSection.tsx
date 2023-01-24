@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '../../../components/Button'
-
-const hero_img = require('../imgs/hero_img.jpg')
+import hero_img from '../imgs/hero_img.jpg'
 
 function HeroSection() {
   return (

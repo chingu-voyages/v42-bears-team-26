@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* buttons syles */
+@layer components {
+    .primary1 {
+        background-color: #637381;
+        color: #FBF7F4;
+        padding: 0.6rem 4rem;
+        border-radius: 25px;
+    }
+    .primary1:hover {
+        background-color: #39475B;
+    }
+    .secondary1 {
+        background-color: transparent;
+        color: #121212;
+        padding: 0.6rem 4rem;
+        border: 2px solid #637381;
+        border-radius: 25px;
+    }
+    .primary2 {
+        background-color: #121212;
+        color: #FBF7F4;
+        padding: 0.6rem 4rem;
+        border-radius: 25px;
+    }
+    .secondary2 {
+        background-color: transparent;
+        color: #121212;
+        padding: 0.6rem 4rem;
+        border: 2px solid #121212;
+        border-radius: 25px;
+    }
+}
