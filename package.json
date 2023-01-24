@@ -6,7 +6,7 @@
   "author": "healthhero-team",
   "license": "MIT",
   "scripts": {
-    "app": "concurrently \"yarn workspace backend run dev\" \"yarn workspace frontend run dev\" ",
+    "dev": "concurrently \"yarn workspace backend run dev\" \"yarn workspace frontend run dev\" ",
     "tsc:check": "yarn workspaces run tsc:check",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",

@@ -1,61 +1,61 @@
 import React, { useEffect, useState } from 'react'
-import { Table } from '../../components/table/table'
-import SearchInput from '../../components/searchInput'
-import CostumePage from '../../components/customPage'
 import axios from 'axios'
+import CostumePage from '../../components/customPage'
+import SearchInput from '../../components/searchInput'
+import { Table } from '../../components/table/table'
+import { TableBody, TableField, TableRow } from '../../components/table/tbody'
 import { TableHead } from '../../components/table/thead'
-import { TableBody } from '../../components/table/tbody'
-import { TableField, TableRow } from '../../components/table/tbody'
-import moment from 'moment'
 
-export const TestResultsPage = () => {
-  const tableHeaders = ['Name', 'Description', 'Date']
+export const MedicationPage = () => {
+  const tableHeaders = ['Medication name', 'Dosage', 'Frequency']
 
-  const [testResult, setTestResult] = useState<
+  const [medications, setMedications] = useState<
     Array<{
+      // To update field, but it will conflict with declaration on tbody.tsx
       name: string
-      description: string
-      date: string
+      dosage: string
+      frequency: string
     }>
   >([])
-  const getTestResult = async () => {
+  const getMedication = async () => {
     try {
-      const result = await axios.get('api/test-results')
+      const result = await axios.get('/api/medications') // To update URL
 
-      setTestResult(result.data.res)
+      setMedications(result.data.res)
     } catch (error) {
       console.log(error)
     }
   }
   useEffect(() => {
-    getTestResult()
+    getMedication()
   }, [])
+
   return (
     <CostumePage
-      title="Documents"
-      message=" Hi Sarah, welcome to your HealthHero medical results"
+      title="Medication Tracking"
+      message=" Hi Sarah, welcome to your HealthHero Medication tracking"
     >
       <div className="border border-white rounded-lg bg-white p-10 w-full">
         <div className="flex flex-warp py-10">
           <h1 className="flex-1 text-3xl font-bold text-secondaryColor_black">
-            Medical Results Records
+            Medication Intake Records
           </h1>
           <div className="flex-none text-md text-linearColor_green">
-            View All
+            Medication List
           </div>
         </div>
         <SearchInput />
         <Table>
           <TableHead headers={tableHeaders} />
           <TableBody>
-            {testResult.map((result, i) => (
+            {medications.map((result, i) => (
               <TableRow
                 color={i % 2 === 0 ? 'bg-secondaryColor_lace' : 'bg-white'}
                 key={i}
               >
                 <TableField value={result.name} />
-                <TableField value={result.description} />
-                <TableField value={moment(result.date).format('DD/MM/YYYY')} />
+                <TableField value={result.dosage} />
+                <TableField value={result.frequency} />
               </TableRow>
             ))}
           </TableBody>
