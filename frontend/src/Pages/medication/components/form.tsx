@@ -73,7 +73,7 @@ const CheckBox = ({
 
 export const Form = ({ title }: { title: string }) => {
   return (
-    <div className=" w-[500px] h-[700px] border-2 border-black p-10 rounded-[40px] bg-orange-50">
+    <div className=" bg-primaryColor_white fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[700px] p-10 rounded-[40px] border-2">
       <FormTitle title={title} />
       <FormSection>
         <FormFieldLabel label="Medication name" />
