@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection'
 import FeaturesSection from './components/FeaturesSection'
 import AboutSection from './components/AboutSection'
 
-function Home() {
+function LandingPage() {
   return (
     <div className="font-roboto grid grid-cols-1 grid-rows-10 h-screen">
       <Navbar />
@@ -15,4 +15,4 @@ function Home() {
   )
 }
 
-export default Home
+export { LandingPage }

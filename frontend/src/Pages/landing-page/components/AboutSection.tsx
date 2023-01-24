@@ -13,11 +13,7 @@ function AboutSection() {
           tenetur a natura ipsa natura incorrupte atque integre iudicante itaque
           aiunt hanc quasi involuta aperiri.
         </p>
-        <Button
-          className="primary1"
-          lable="Create Account"
-          onClick={() => alert('ya4')}
-        />
+        <Button className="primary1" label="Create Account" />
       </div>
     </>
   )

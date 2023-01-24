@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button'
 
 function Navbar() {
+  const navigate = useNavigate()
   return (
     <>
       <nav className="bg-primaryColor py-4 col-span-1 row-span-1">
@@ -19,14 +21,10 @@ function Navbar() {
               <div className="flex flex-row items-center gap-6">
                 <Button
                   className="secondary1 py-1 px-12"
-                  lable="Sign In"
-                  onClick={() => alert('ya1')}
+                  label="Sign In"
+                  onClick={() => navigate('/home')}
                 />
-                <Button
-                  className="primary1 py-2 px-12"
-                  lable="Create"
-                  onClick={() => alert('ya2')}
-                />
+                <Button className="primary1 py-2 px-12" label="Create" />
               </div>
             </li>
           </ul>

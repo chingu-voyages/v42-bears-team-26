@@ -1,15 +1,15 @@
 import React from 'react'
 
 type Props = {
-  lable: string
-  onClick: any
+  label: string
   className: string
+  onClick?: () => void
 }
 
 function Button(props: Props) {
   return (
-    <button className={props.className} onClick={props.onClick}>
-      {props.lable}
+    <button onClick={props.onClick} className={props.className}>
+      {props.label}
     </button>
   )
 }

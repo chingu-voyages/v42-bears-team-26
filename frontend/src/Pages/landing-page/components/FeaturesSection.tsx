@@ -1,6 +1,6 @@
 import React from 'react'
 
-import feature_img from '../imgs/feature_img.jpg'
+import feature_img from '../../../../assets/feature_img.jpg'
 
 function FeaturesSection() {
   return (
