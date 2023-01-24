@@ -5,9 +5,13 @@ import SearchInput from '../../components/searchInput'
 import { Table } from '../../components/table/table'
 import { TableBody, TableField, TableRow } from '../../components/table/tbody'
 import { TableHead } from '../../components/table/thead'
+import { Form } from './components'
+import Button from '../../components/Button'
 
 export const MedicationPage = () => {
   const tableHeaders = ['Medication name', 'Dosage', 'Frequency']
+
+  const [showModal, setShowModal] = useState(false)
 
   const [medications, setMedications] = useState<
     Array<{
@@ -60,6 +64,14 @@ export const MedicationPage = () => {
             ))}
           </TableBody>
         </Table>
+        {showModal && (
+          <Form title="Add Medication" onOk={() => setShowModal(false)} />
+        )}
+        <Button
+          onClick={() => setShowModal(true)}
+          label="Add Medication"
+          className="py-2 px-4 rounded-full bg-secondaryColor_black text-primaryColor_white"
+        />
       </div>
     </CostumePage>
   )
