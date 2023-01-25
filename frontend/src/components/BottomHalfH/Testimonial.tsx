@@ -27,7 +27,7 @@ const Testimonial = ({
   return (
     <div className="h-84 w-80 mt-5 rounded-md border-2 border-gray px-2 py-5 text-center">
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full border-2 border-gray bg-slate-100 p-4">
+        <div className="rounded-full border-2 border-gray bg-rose-50 p-4">
           {icon}
         </div>
       </div>

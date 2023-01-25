@@ -1,12 +1,12 @@
 /*Designed by Sandra Ashipala https://github.com/sandramsc*/
-import React from 'react'
+import React from 'react';
 import {
   StarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
-} from '@heroicons/react/24/solid'
-import HeaderText from '../../shared/HeaderText'
-import Testimonial from './Testimonial'
-import { TestimonialType } from '../../shared/types'
+} from '@heroicons/react/24/solid';
+import HeaderText from '../../shared/HeaderText';
+import Testimonial from './Testimonial';
+import { TestimonialType } from '../../shared/types';
 
 const testimonials: Array<TestimonialType> = [
   {
@@ -50,31 +50,31 @@ const testimonials: Array<TestimonialType> = [
 function Section_1() {
   return (
     <div className="bg-yellow-50">
-    <section id="testimonials" className="min-h-full py-10">
-      {/* HEADER */}
-      <div className="flex justify-center mx-90">
-        <HeaderText>Testimonials</HeaderText>
-      </div>
+      <section id="testimonials" className="min-h-full py-10">
+        {/* HEADER */}
+        <div className="flex justify-center mx-90">
+          <HeaderText>Testimonials</HeaderText>
+        </div>
 
-      {/* TESTIMONIALS */}
-      <div className="mt-5 ml-20 mr-20 items-center justify-between md:flex">
-        {testimonials.map((testimonial: TestimonialType) => (
-          <Testimonial
-            key={testimonial.name}
-            icon={testimonial.icon}
-            icon_2={testimonial.icon_2}
-            icon_3={testimonial.icon_3}
-            icon_4={testimonial.icon_4}
-            icon_5={testimonial.icon_5}
-            icon_6={testimonial.icon_6}
-            comment={testimonial.comment}
-            name={testimonial.name}
-            location={testimonial.location}
-          />
-        ))}
-      </div>
-    </section>
+        {/* TESTIMONIALS */}
+        <div className="mt-5 ml-20 mr-20 items-center justify-between md:flex">
+          {testimonials.map((testimonial: TestimonialType) => (
+            <Testimonial
+              key={testimonial.name}
+              icon={testimonial.icon}
+              icon_2={testimonial.icon_2}
+              icon_3={testimonial.icon_3}
+              icon_4={testimonial.icon_4}
+              icon_5={testimonial.icon_5}
+              icon_6={testimonial.icon_6}
+              comment={testimonial.comment}
+              name={testimonial.name}
+              location={testimonial.location}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
-export default Section_1
+export default Section_1;
