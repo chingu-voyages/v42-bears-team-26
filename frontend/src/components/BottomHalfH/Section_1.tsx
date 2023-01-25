@@ -12,7 +12,7 @@ const testimonials: Array<TestimonialType> = [
   {
     icon: <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />,
     comment:
-      'Est expedita debitis est reiciendis quia est dolorum ratione ut quia voluptates. Et natus molestiae qui temporibus deleniti ut numquam sapiente vel saepe pariatur ab internos error et perspiciatis animi ut minus atque.',
+      'Est expedita debitis est reiciendis quia. Et natus molestiae qui temporibus deleniti ut numquam sapiente vel saepe pariatur ab internos error et perspiciatis animi ut minus atque.',
     icon_2: <StarIcon className="h-6 w-6" />,
     icon_3: <StarIcon className="h-6 w-6" />,
     icon_4: <StarIcon className="h-6 w-6" />,
@@ -24,7 +24,7 @@ const testimonials: Array<TestimonialType> = [
   {
     icon: <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6" />,
     comment:
-      'Lorem ipsum dolor sit amet. Vel nesciunt quia id reiciendis blanditiis ut quia voluptatibus rem omnis facilis est consequatur dolorem est impedit aliquam. Aut autem commodi aut molestiae tempore qui nobis harum.',
+      'Lorem ipsum dolor sit amet. Vel nesciunt quia molestiae tempore qui nobis harum.',
     icon_2: <StarIcon className="h-6 w-6" />,
     icon_3: <StarIcon className="h-6 w-6" />,
     icon_4: <StarIcon className="h-6 w-6" />,
@@ -51,24 +51,24 @@ function Section_1() {
   return (
     <section
       id="testimonials"
-      className="bg-primaryColor_gray mx-auto min-h-full w-5/6 py-20"
+      className="bg-white min-h-full py-10"
     >
       {/* HEADER */}
-      <div>
+      <div className="flex justify-center mx-90">
         <HeaderText>Testimonials</HeaderText>
       </div>
 
       {/* TESTIMONIALS */}
-      <div className="mt-5 items-center justify-between gap-8 md:flex">
+      <div className="mt-5 ml-20 mr-20 items-center justify-between md:flex">
         {testimonials.map((testimonial: TestimonialType) => (
           <Testimonial
             key={testimonial.name}
             icon={testimonial.icon}
             icon_2={testimonial.icon_2}
-            icon_3={testimonial.icon_2}
-            icon_4={testimonial.icon_2}
-            icon_5={testimonial.icon_2}
-            icon_6={testimonial.icon_2}
+            icon_3={testimonial.icon_3}
+            icon_4={testimonial.icon_4}
+            icon_5={testimonial.icon_5}
+            icon_6={testimonial.icon_6}
             comment={testimonial.comment}
             name={testimonial.name}
             location={testimonial.location}
