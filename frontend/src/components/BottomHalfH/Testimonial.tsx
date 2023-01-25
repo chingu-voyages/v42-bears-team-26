@@ -13,23 +13,35 @@ type Props = {
   location: string
 }
 
-const Testimonial = ({ icon, comment, name, icon_2, icon_3, icon_4, icon_5, icon_6, location }: Props) => {
+const Testimonial = ({
+  icon,
+  comment,
+  name,
+  icon_2,
+  icon_3,
+  icon_4,
+  icon_5,
+  icon_6,
+  location,
+}: Props) => {
   return (
-    <div className="mt-5 rounded-md border-2 border-gray px-4 py-10 text-center">
+    <div className="h-84 w-80 mt-5 rounded-md border-2 border-gray px-2 py-5 text-center">
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full border-2 border-gray bg-yellow-200 p-4">
+        <div className="rounded-full border-2 border-gray bg-slate-100 p-4">
           {icon}
         </div>
       </div>
       <p className="font-poppins">{comment}</p>
-      <div className="flex justify-center">
-      <div>{icon_2}</div>
-      <div>{icon_3}</div>
-      <div>{icon_4}</div>
-      <div>{icon_5}</div>
-      <div>{icon_6}</div>
+      <div className="mt-4 mb-4 flex justify-center">
+        <div>{icon_2}</div>
+        <div>{icon_3}</div>
+        <div>{icon_4}</div>
+        <div>{icon_5}</div>
+        <div>{icon_6}</div>
       </div>
+      <div className="font-bold">
       <h4>{name}</h4>
+      </div>
       <p>{location}</p>
     </div>
   )
