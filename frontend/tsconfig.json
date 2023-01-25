@@ -9,5 +9,6 @@
     "moduleResolution": "node"
   },
   "files": ["src/index.tsx"],
+  "include": ["typings"],
   "exclude": ["node_modules"]
 }

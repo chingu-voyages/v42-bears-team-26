@@ -1,11 +1,13 @@
 import express = require('express')
-import medicationMock from '../mocks/medicationMock'
+import { dbClient } from '../db'
 
 const MedicationRoute = express.Router()
 
-MedicationRoute.get('/', (_, res) => {
+MedicationRoute.get('/', async (_, res) => {
+  const { rows: results } = await dbClient.query('select * from medications')
+
   res.send({
-    res: medicationMock,
+    res: results,
   })
 })
 

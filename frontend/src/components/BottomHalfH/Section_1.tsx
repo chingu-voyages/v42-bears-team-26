@@ -49,10 +49,8 @@ const testimonials: Array<TestimonialType> = [
 
 function Section_1() {
   return (
-    <section
-      id="testimonials"
-      className="bg-white min-h-full py-10"
-    >
+    <div className="bg-yellow-50">
+    <section id="testimonials" className="min-h-full py-10">
       {/* HEADER */}
       <div className="flex justify-center mx-90">
         <HeaderText>Testimonials</HeaderText>
@@ -76,6 +74,7 @@ function Section_1() {
         ))}
       </div>
     </section>
+    </div>
   )
 }
 export default Section_1
