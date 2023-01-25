@@ -2,7 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
     colors: {
       white: 'white',
       gray: '#A7A7A7',
@@ -19,9 +19,10 @@ module.exports = {
       linearColor_green: '#1D7D81',
     },
     fontFamily: {
-      dmsans: ["Poppins", "sans-serif"],
-      montserrat: ["Montserrat", "sans-serif"],
+      popins: ["Poppins", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"]
     }
   },
+},
   plugins: [],
-}
+};

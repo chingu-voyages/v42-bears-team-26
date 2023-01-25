@@ -1,1 +1,2 @@
-{ "extends": "../.eslintrc", "ignorePatterns": "*.config.js" }
+{ "extends": "../.eslintrc", "ignorePatterns": "*.config.js"}
+
