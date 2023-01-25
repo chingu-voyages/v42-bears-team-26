@@ -14,6 +14,10 @@ const testimonials: Array<TestimonialType> = [
     comment:
       'Est expedita debitis est reiciendis quia est dolorum ratione ut quia voluptates. Et natus molestiae qui temporibus deleniti ut numquam sapiente vel saepe pariatur ab internos error et perspiciatis animi ut minus atque.',
     icon_2: <StarIcon className="h-6 w-6" />,
+    icon_3: <StarIcon className="h-6 w-6" />,
+    icon_4: <StarIcon className="h-6 w-6" />,
+    icon_5: <StarIcon className="h-6 w-6" />,
+    icon_6: <StarIcon className="h-6 w-6" />,
     name: 'Marama Petera',
     location: 'Tulia',
   },
@@ -22,6 +26,10 @@ const testimonials: Array<TestimonialType> = [
     comment:
       'Lorem ipsum dolor sit amet. Vel nesciunt quia id reiciendis blanditiis ut quia voluptatibus rem omnis facilis est consequatur dolorem est impedit aliquam. Aut autem commodi aut molestiae tempore qui nobis harum.',
     icon_2: <StarIcon className="h-6 w-6" />,
+    icon_3: <StarIcon className="h-6 w-6" />,
+    icon_4: <StarIcon className="h-6 w-6" />,
+    icon_5: <StarIcon className="h-6 w-6" />,
+    icon_6: <StarIcon className="h-6 w-6" />,
     name: 'Cvita Doleschall',
     location: 'Hamburg',
   },
@@ -30,6 +38,10 @@ const testimonials: Array<TestimonialType> = [
     comment:
       'Non consequatur libero et voluptatem mollitia qui voluptates provident! Est repellat quis vel quae sint aut doloremque minima!!',
     icon_2: <StarIcon className="h-6 w-6" />,
+    icon_3: <StarIcon className="h-6 w-6" />,
+    icon_4: <StarIcon className="h-6 w-6" />,
+    icon_5: <StarIcon className="h-6 w-6" />,
+    icon_6: <StarIcon className="h-6 w-6" />,
     name: 'Chikelu Obasea',
     location: 'Dongguan',
   },
@@ -53,6 +65,10 @@ function Section_1() {
             key={testimonial.name}
             icon={testimonial.icon}
             icon_2={testimonial.icon_2}
+            icon_3={testimonial.icon_2}
+            icon_4={testimonial.icon_2}
+            icon_5={testimonial.icon_2}
+            icon_6={testimonial.icon_2}
             comment={testimonial.comment}
             name={testimonial.name}
             location={testimonial.location}
