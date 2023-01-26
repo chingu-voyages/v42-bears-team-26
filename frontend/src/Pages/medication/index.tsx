@@ -8,19 +8,18 @@ import { TableHead } from '../../components/table/thead'
 import { Form } from './components'
 import Button from '../../components/Button'
 
+export type MedicationEntry = {
+  name: string
+  dosage: number
+  frequency: 'hourly' | 'daily' | 'weekly'
+}
+
 export const MedicationPage = () => {
   const tableHeaders = ['Medication name', 'Dosage', 'Frequency']
 
   const [showModal, setShowModal] = useState(false)
 
-  const [medications, setMedications] = useState<
-    Array<{
-      // To update field, but it will conflict with declaration on tbody.tsx
-      name: string
-      dosage: string
-      frequency: string
-    }>
-  >([])
+  const [medications, setMedications] = useState<MedicationEntry[]>([])
   const getMedication = async () => {
     try {
       const result = await axios.get('/api/medications') // To update URL
@@ -34,12 +33,32 @@ export const MedicationPage = () => {
     getMedication()
   }, [])
 
+  const handleAddMedication = async (values: MedicationEntry) => {
+    const { data }: { data: MedicationEntry } = await axios.post(
+      '/api/medications',
+      values
+    )
+
+    setMedications((medications) => [
+      ...medications,
+      { name: data.name, frequency: data.frequency, dosage: data.dosage },
+    ])
+    setShowModal(false)
+  }
+
   return (
     <CostumePage
       title="Medication Tracking"
       message=" Hi Sarah, welcome to your HealthHero Medication tracking"
     >
       <div className="border border-white rounded-lg bg-white p-10 w-full">
+        {showModal && (
+          <Form
+            title="Add Medication"
+            onOk={handleAddMedication}
+            onCancel={() => setShowModal(false)}
+          />
+        )}
         <div className="flex flex-warp py-10">
           <h1 className="flex-1 text-3xl font-bold text-secondaryColor_black">
             Medication Intake Records
@@ -64,9 +83,6 @@ export const MedicationPage = () => {
             ))}
           </TableBody>
         </Table>
-        {showModal && (
-          <Form title="Add Medication" onOk={() => setShowModal(false)} />
-        )}
         <Button
           onClick={() => setShowModal(true)}
           label="Add Medication"
