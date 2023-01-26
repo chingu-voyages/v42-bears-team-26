@@ -1,5 +1,5 @@
 /*Designed by Sandra Ashipala https://github.com/sandramsc*/
-import React from 'react'
+import React from 'react';
 
 type Props = {
   icon: JSX.Element
@@ -47,4 +47,4 @@ const Testimonial = ({
   )
 }
 
-export default Testimonial
+export default Testimonial;

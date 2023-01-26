@@ -1,12 +1,12 @@
 /*Designed by Sandra Ashipala https://github.com/sandramsc*/
-import React from 'react';
+import React from 'react'
 import {
   StarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
-} from '@heroicons/react/24/solid';
-import HeaderText from '../../shared/HeaderText';
-import Testimonial from './Testimonial';
-import { TestimonialType } from '../../shared/types';
+} from '@heroicons/react/24/solid'
+import HeaderText from '../../shared/HeaderText'
+import Testimonial from './Testimonial'
+import { TestimonialType } from '../../shared/types'
 
 const testimonials: Array<TestimonialType> = [
   {
