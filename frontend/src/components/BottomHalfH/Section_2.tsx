@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/solid'
 
 
+
 function Section_2() {
   return (
     <div className="bg-rose-50">
@@ -23,7 +24,7 @@ function Section_2() {
            {/* SOCIALS */}
         <div className="mt-10 justify-between gap-8 md:flex">
           <div>
-            <div className="mt-4 mb-4 flex justify-center">
+            <div className="w-4 h-4">
             <div><MapPinIcon /></div>
             </div>
             <p>9094 Bay Meadows Street</p>
@@ -31,7 +32,7 @@ function Section_2() {
           </div>
 
            <div>
-            <div className="mt-4 mb-4 flex justify-center">
+            <div className="w-4 h-4">
             <div><DevicePhoneMobileIcon /></div>
             </div>
             <p>+229-955-5388-336</p>
@@ -39,7 +40,7 @@ function Section_2() {
           </div>
 
            <div>
-            <div className="mt-4 mb-4 flex justify-center">
+            <div className="w-4 h-4">
             <div><EnvelopeIcon /></div>
             </div>
             <p>office@mail.com</p>
