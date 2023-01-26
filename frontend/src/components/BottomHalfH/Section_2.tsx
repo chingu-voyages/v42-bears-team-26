@@ -24,7 +24,10 @@ function Section_2() {
 
   return (
     <div className="bg-rose-50">
-      <section id="contactus" className=" ml-20 mr-20 items-center justify-between md:flex pt-4 mb-14">
+      <section
+        id="contactus"
+        className=" ml-20 mr-20 items-center justify-between md:flex pt-4 mb-14"
+      >
         <div className="relative w-4/6 basis-3/5">
           {/* HEADER */}
           <HeaderText>Leave us a message</HeaderText>
@@ -68,73 +71,76 @@ function Section_2() {
         </div>
 
         <div className="relative w-2/6">
-        {/* FORM */}
-        <div className="mt-10 justify-between gap-8 md:flex">
-          <form
-            target="_blank"
-            onSubmit={onSubmit}
-            method="POST"
-            action="https://formsubmit.co/your@email.com"
-          >
-            <div>
-              <p className="font-bold">Full name</p>
-              <input
-                className={inputStyles}
-                type="text"
-                placeholder="John Doe"
-                {...register('name', { required: false, maxLength: 20 })}
-              />
-              {errors.name && (
-                <p className="mb-1 text-red-600">
-                  {errors.name.type === 'maxLength' &&
-                    'Max length is 20 characters.'}
-                </p>
-              )}
-            </div>
+          {/* FORM */}
+          <div className="mt-10 justify-between gap-8 md:flex">
+            <form
+              target="_blank"
+              onSubmit={onSubmit}
+              method="POST"
+              action="https://formsubmit.co/your@email.com"
+            >
+              <div>
+                <p className="font-bold">Full name</p>
+                <input
+                  className={inputStyles}
+                  type="text"
+                  placeholder="John Doe"
+                  {...register('name', { required: false, maxLength: 20 })}
+                />
+                {errors.name && (
+                  <p className="mb-1 text-red-600">
+                    {errors.name.type === 'maxLength' &&
+                      'Max length is 20 characters.'}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <p className="font-bold">Email address</p>
-              <input
-                className={inputStyles}
-                type="text"
-                placeholder="Nolte"
-                {...register('email', {
-                  required: true,
-                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                })}
-              />
-              {errors.email && (
-                <p className="mb-1 text-primary-500 text-red-600">
-                  {errors.email.type === 'required' &&
-                    'Email address is required.'}
-                  {errors.email.type === 'pattern' && 'Invalid email address.'}
-                </p>
-              )}
-            </div>
+              <div>
+                <p className="font-bold">Email address</p>
+                <input
+                  className={inputStyles}
+                  type="text"
+                  placeholder="Nolte"
+                  {...register('email', {
+                    required: true,
+                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  })}
+                />
+                {errors.email && (
+                  <p className="mb-1 text-primary-500 text-red-600">
+                    {errors.email.type === 'required' &&
+                      'Email address is required.'}
+                    {errors.email.type === 'pattern' &&
+                      'Invalid email address.'}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <p className="font-bold">Message</p>
-              <textarea
-                className={inputStyles}
-                cols={50}
-                rows={4}
-                placeholder="Type here..."
-                {...register('message', { required: true, maxLength: 220 })}
-              />
-              {errors.message && (
-                <p className="mb-1text-primary-500 text-red-600">
-                  {errors.message.type === 'required' && 'Message is required.'}
-                  {errors.message.type === 'message' &&
-                    'Max length is 220 characters.'}
-                </p>
-              )}
-            </div>
-            <button
-              type="submit"
-              className="primary1 transition duration-500 hover:text-white">
-              Send
-            </button>
-          </form>
+              <div>
+                <p className="font-bold">Message</p>
+                <textarea
+                  className={inputStyles}
+                  cols={50}
+                  rows={4}
+                  placeholder="Type here..."
+                  {...register('message', { required: true, maxLength: 220 })}
+                />
+                {errors.message && (
+                  <p className="mb-1text-primary-500 text-red-600">
+                    {errors.message.type === 'required' &&
+                      'Message is required.'}
+                    {errors.message.type === 'message' &&
+                      'Max length is 220 characters.'}
+                  </p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="primary1 transition duration-500 hover:text-white"
+              >
+                Send
+              </button>
+            </form>
           </div>
         </div>
       </section>
