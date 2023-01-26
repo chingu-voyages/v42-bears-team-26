@@ -4,9 +4,9 @@ import {
   StarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
 } from '@heroicons/react/24/solid'
-import HeaderText from '../../shared/HeaderText'
+import HeaderText from '../shared/HeaderText'
 import Testimonial from './Testimonial'
-import { TestimonialType } from '../../shared/types'
+import { TestimonialType } from '../shared/types'
 
 const testimonials: Array<TestimonialType> = [
   {

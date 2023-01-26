@@ -1,5 +1,5 @@
 /*Designed by Sandra Ashipala https://github.com/sandramsc*/
-import HeaderText from '../../shared/HeaderText'
+import HeaderText from '../shared/HeaderText'
 import { useForm } from 'react-hook-form'
 import {
   MapPinIcon,
