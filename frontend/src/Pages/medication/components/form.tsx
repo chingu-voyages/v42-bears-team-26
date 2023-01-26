@@ -12,12 +12,7 @@ const days = [
   'Saturday',
 ]
 
-const intakeTime = [
-  'breakfast',
-  'lunch',
-  'dinner',
-  'bedtime'
-]
+const intakeTime = ['breakfast', 'lunch', 'dinner', 'bedtime']
 
 const FormFieldLabel = ({ label }: { label: string }) => (
   <label className="mb-2 block text-sm font-medium font-sans">{label}</label>
@@ -94,31 +89,33 @@ export const Form = ({ title, onOk }: { title: string; onOk: () => void }) => {
         </FormSection>
         <FormSection>
           <FormFieldLabel label="Dosage" />
-          <div className="mb-2 inline-block mr-3">
-            <Select
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={() => {
-                return undefined
-              }}
-            />
+          <div className="mb-3">
+            <div className="mb-2 inline-block mr-3">
+              <Select
+                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
+            <div className="inline-block mr-3">
+              <Select
+                options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
+            <div className="inline-block">
+              <Select
+                options={['before', 'after']}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
           </div>
-          <div className="inline-block mr-3">
-            <Select
-              options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
-              onChange={() => {
-                return undefined
-              }}
-            />
-          </div>
-          <div className="inline-block">
-            <Select
-              options={['before', 'after']}
-              onChange={() => {
-                return undefined
-              }}
-            />
-          </div>
-           <div className="flex flex-wrap gap-2 items-center w-100">
+          <div className="flex flex-wrap gap-2 items-center w-100">
             {intakeTime.map((time) => (
               <div className="flex w-[120px] items-center gap-2" key={time}>
                 <CheckBox
@@ -129,8 +126,7 @@ export const Form = ({ title, onOk }: { title: string; onOk: () => void }) => {
                 />
               </div>
             ))}
-          </div> 
-          
+          </div>
         </FormSection>
         <FormSection>
           <FormFieldLabel label="Frequency" />
