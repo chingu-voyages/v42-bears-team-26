@@ -1,5 +1,4 @@
 import React from 'react'
-
 import feature_img from '../../../../assets/feature_img.jpg'
 
 function FeaturesSection() {
