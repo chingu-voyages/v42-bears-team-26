@@ -1,5 +1,4 @@
-export * from './home/HomePage'
-export * from '../components/Section_1'
+export * from './home'
 export * from './test-results'
 export * from './medication'
 export * from './landing-page'

@@ -86,7 +86,7 @@ export const MedicationPage = () => {
         <Button
           onClick={() => setShowModal(true)}
           label="Add Medication"
-          className="py-2 px-4 rounded-full bg-secondaryColor_black text-primaryColor_white"
+          className="primary2"
         />
       </div>
     </CostumePage>

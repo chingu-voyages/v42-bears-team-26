@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 
+
 /* buttons syles */
 @layer components {
     .primary1 {
@@ -37,12 +38,7 @@
         border-radius: 25px;
     }
 }
-html,
-body,
-#root,
-.app{
-    height: 100%;
-    width: 100%;
-    font-family: "Poppins", sans-serif;
+* {
+    font-family: "Poppins", sans-serif,
 }
 

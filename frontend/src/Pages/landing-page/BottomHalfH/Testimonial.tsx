@@ -26,7 +26,7 @@ const Testimonial = ({ icon, comment, stars, name, location }: Props) => {
           ))}
       </div>
       <div className="font-bold">
-      <h4>{name}</h4>
+        <h4>{name}</h4>
       </div>
       <p>{location}</p>
     </div>
