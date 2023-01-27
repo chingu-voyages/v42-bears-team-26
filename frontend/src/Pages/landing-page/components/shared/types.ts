@@ -9,3 +9,11 @@ export interface TestimonialType {
   name: string
   location: string
 }
+
+export interface MenuType {
+  sub_menu_1: string
+  sub_menu_2: string
+  sub_menu_3: string
+  sub_menu_4: string
+  title: string
+}

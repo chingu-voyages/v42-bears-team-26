@@ -1,5 +1,5 @@
 /*Designed by Sandra Ashipala https://github.com/sandramsc*/
-import React from 'react'
+//import React from 'react'
 import {
   StarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
