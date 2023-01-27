@@ -6,6 +6,7 @@ import AboutSection from './components/AboutSection'
 import Section_1 from './components/BottomHalfH/Section_1'
 import Section_2 from './components/BottomHalfH/Section_2'
 import Section_3 from './components/BottomHalfH/Section_3'
+import Section_4 from './components/BottomHalfH/Section_4'
 
 function LandingPage() {
   return (
@@ -17,6 +18,7 @@ function LandingPage() {
       <Section_1 />
       <Section_2 />
       <Section_3 />
+      <Section_4 />
     </div>
   )
 }
