@@ -52,7 +52,7 @@ function Section_3() {
             {/* FISRT-SECTION */}
             <HeaderText>HealthHero</HeaderText>
             {/* SOCIALS */}
-            <div className="mt-10 justify-between gap-8 md:flex">
+            <div className="mt-10 justify-center -ml-12 gap-2 md:flex">
               <button>
                 <svg
                   className="w-5 h-5 fill-current"
