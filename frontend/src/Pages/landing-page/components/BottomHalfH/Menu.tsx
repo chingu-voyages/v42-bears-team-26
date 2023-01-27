@@ -8,25 +8,25 @@ type Props = {
 }
 
 const Menu = ({
-    title,
-    sub_menu_1,
-    sub_menu_2,
-    sub_menu_3,
-    sub_menu_4,
+  title,
+  sub_menu_1,
+  sub_menu_2,
+  sub_menu_3,
+  sub_menu_4,
 }: Props) => {
   return (
-    <div className=" h-44 w-40 mt-5 rounded-md border-2 border-gray px-2 py-5 text-center">
-      <div className="">
+    <div className=" h-44 w-40 mt-5 px-2 py-5 text-center">
+      <div className="text-left">
         <p className="font-poppins font-bold">{title}</p>
       </div>
 
-        <ul className="">
+      <ul className="text-left">
         <li>{sub_menu_1}</li>
         <li>{sub_menu_2}</li>
         <li>{sub_menu_3}</li>
         <li>{sub_menu_4}</li>
-        </ul>
-        </div>
+      </ul>
+    </div>
   )
 }
 
