@@ -51,8 +51,8 @@ export const options = {
 
 const labels = ['1/13', '1/14', '1/15', '1/16', '1/17', '1/18']
 export default function LineChart(props: {
-  target: Number[]
-  achieved: Number[]
+  target: number[]
+  achieved: number[]
 }) {
   return (
     <Line
