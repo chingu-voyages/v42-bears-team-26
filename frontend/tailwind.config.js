@@ -17,6 +17,7 @@ module.exports = {
       linearColor_orange: '#F8BD8D',
       linearColor_pink: '#E0C7C4',
       linearColor_green: '#1D7D81',
+      linearColor_peacock: '#456086',
     },
     fontFamily: {
       popins: ["Poppins", "sans-serif"],
