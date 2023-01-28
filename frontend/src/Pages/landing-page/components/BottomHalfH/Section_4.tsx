@@ -1,5 +1,3 @@
-/*Designed by Sandra Ashipala https://github.com/sandramsc*/
-
 function Section_4() {
   return (
     <div className="bg-gray">

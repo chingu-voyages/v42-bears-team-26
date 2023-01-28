@@ -1,4 +1,3 @@
-/*Designed by Sandra Ashipala https://github.com/sandramsc*/
 import React from 'react'
 
 type Props = {

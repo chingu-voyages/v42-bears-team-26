@@ -1,4 +1,3 @@
-/*Designed by Sandra Ashipala https://github.com/sandramsc*/
 type Props = {
   sub_menu_1: string
   sub_menu_2: string
