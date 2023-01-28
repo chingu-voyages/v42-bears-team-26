@@ -5,7 +5,8 @@ import {
   MedicationPage,
   LandingPage,
   DashboardPage,
-} from '../Pages'
+  HomePage,
+} from '../pages'
 
 export const AppRoutes = () => {
   return (
