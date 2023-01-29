@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { MdNotifications } from 'react-icons/md'
+import Navigationbar from './Navigationbar'
 
 type costumeProps = {
   title: string
@@ -11,6 +12,7 @@ const CostumePage = (props: costumeProps) => {
     <>
       <div className="flex w-full divide-x divide-gray h-full">
         {/* <div className="w-96 mr-10  "> side bar</div> */}
+        <Navigationbar />
 
         <div className=" w-full  divide-y divide-gray ">
           <div className="w-full flex  bg-white p-10">
