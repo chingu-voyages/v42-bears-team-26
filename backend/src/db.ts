@@ -6,7 +6,7 @@ import { isDevelopmentMode } from './utils'
 let dbClient: Client
 
 if (isDevelopmentMode) {
-  const envPath = path.resolve(__dirname, '../.env')
+  const envPath = path.resolve(__dirname, '../.env.production')
   dotenv.config({ path: envPath })
 }
 
