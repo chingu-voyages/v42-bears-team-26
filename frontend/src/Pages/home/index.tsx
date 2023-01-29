@@ -5,7 +5,7 @@ import Navigationbar from '../../components/Navigationbar'
 export const HomePage = () => {
   return (
     <>
-    <Navigationbar />
+      <Navigationbar />
       <h2>Home page</h2>
       <div>
         <Link className="font-bold hover:text-green-500" to="/test-results">
