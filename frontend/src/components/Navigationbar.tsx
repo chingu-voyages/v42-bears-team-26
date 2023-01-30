@@ -57,7 +57,7 @@ function Navigationbar() {
         </section>
         <section className="col-span-1 row-span-4 mb-12">
           <div className="p-6 py-10 rounded-lg border-secondaryColor_black border-0 flex flex-col gap-6 items-center bg-gradient-to-r to-linearColor_orange from-linearColor_pink">
-            <h1 className='font-bold'>Got a Question</h1>
+            <h1 className="font-bold">Got a Question</h1>
             <Button
               label="Cancel"
               className="py-2 px-4 rounded-full text-primaryColor_white w-[100px] bg-secondaryColor_black"
