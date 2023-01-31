@@ -15,7 +15,7 @@ function Navigationbar() {
     <>
       <nav className="grid grid-cols-1 grid-rows-5 bg-primaryColor_white pl-12 py-12 w-96 justify-items-start h-screen">
         <section className="col-span-1 row-span-1">
-          <h1 className='text-2xl'>HealthHero</h1>
+          <h1 className="text-2xl">HealthHero</h1>
         </section>
         <section className="col-span-1 row-span-4">
           <ul className="flex flex-col gap-6 whitespace-nowrap ">
