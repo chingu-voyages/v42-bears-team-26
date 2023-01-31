@@ -1,15 +1,12 @@
 import React from 'react'
-import CustomPage from '../../components/customPage'
 import UpComingActivities from './UpComingActivities'
 import Widget from '../../components/widget'
 import Legend from '../../components/LineChart/Legend'
 import LineChart from '../../components/LineChart/LineChart'
+
 export function DashboardPage() {
   return (
-    <CustomPage
-      title="Dashboard"
-      message="Hi Sarah, welcome to your HealthHero dashboard "
-    >
+    <div className="w-100">
       <Widget
         title="Upcoming activities/Appointments"
         content={<UpComingActivities />}
@@ -26,6 +23,6 @@ export function DashboardPage() {
         }
         options={<Legend />}
       />
-    </CustomPage>
+    </div>
   )
 }

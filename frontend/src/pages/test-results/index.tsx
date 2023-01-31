@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from '../../components/table/table'
 import SearchInput from '../../components/searchInput'
-import CostumePage from '../../components/customPage'
 import axios from 'axios'
 import { TableHead } from '../../components/table/thead'
 import { TableBody } from '../../components/table/tbody'
@@ -31,10 +30,7 @@ export const TestResultsPage = () => {
     getTestResult()
   }, [])
   return (
-    <CostumePage
-      title="Documents"
-      message=" Hi Sarah, welcome to your HealthHero medical results"
-    >
+    <>
       <div className="border border-white rounded-lg bg-white p-10 w-full">
         <div className="flex flex-warp py-10">
           <h1 className="flex-1 text-3xl font-bold text-secondaryColor_black">
@@ -50,8 +46,8 @@ export const TestResultsPage = () => {
           <TableBody>
             {testResult.map((result, i) => (
               <TableRow
-                color={i % 2 === 0 ? 'bg-secondaryColor_lace' : 'bg-white'}
                 key={i}
+                color={i % 2 === 0 ? 'bg-secondaryColor_lace' : 'bg-white'}
               >
                 <TableField value={result.name} />
                 <TableField value={result.description} />
@@ -61,6 +57,6 @@ export const TestResultsPage = () => {
           </TableBody>
         </Table>
       </div>
-    </CostumePage>
+    </>
   )
 }
