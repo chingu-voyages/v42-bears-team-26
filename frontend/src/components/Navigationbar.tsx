@@ -14,7 +14,9 @@ function Navigationbar() {
   return (
     <>
       <nav className="grid grid-cols-1 grid-rows-5 bg-primaryColor_white pl-12 py-12 w-96 justify-items-start h-screen">
-        <section className="col-span-1 row-span-1 text-2xl">HealthHero</section>
+        <section className="col-span-1 row-span-1">
+          <h1 className='text-2xl'>HealthHero</h1>
+        </section>
         <section className="col-span-1 row-span-4">
           <ul className="flex flex-col gap-6 whitespace-nowrap ">
             <li>
@@ -56,7 +58,7 @@ function Navigationbar() {
           </ul>
         </section>
         <section className="col-span-1 row-span-4 mb-12">
-          <div className="p-6 py-10 rounded-lg border-secondaryColor_black border-0 flex flex-col gap-6 items-center bg-gradient-to-r to-linearColor_orange from-linearColor_pink">
+          <div className="px-10 py-12 rounded-lg border-secondaryColor_black border-0 flex flex-col gap-6 items-center bg-gradient-to-r to-linearColor_orange from-linearColor_pink">
             <h1 className="font-bold">Got a Question</h1>
             <Button
               label="Cancel"
@@ -64,7 +66,7 @@ function Navigationbar() {
             />
           </div>
         </section>
-        <section className="col-span-1 row-span-5 flex flex-row gap-3 border-t-[1px] border-secondaryColor_black">
+        <section className="col-span-1 row-span-5 flex flex-row gap-3">
           <MdLogout className="text-2xl" />
           <h3>Logout</h3>
         </section>
