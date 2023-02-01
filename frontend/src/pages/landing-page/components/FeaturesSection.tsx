@@ -5,7 +5,7 @@ function FeaturesSection() {
   return (
     <>
       <div className="grid grid-cols-1 grid-rows-2 lg:grid-cols-3 lg:grid-rows-1 text-textColor justify-center align-start items-center gap-6 py-12 px-[6rem] col-span-1 row-span-4">
-        <section className="bg-yellow-600 col-span-1 row-span-1 lg:col-span-1 lg:row-span-1">
+        <section className="col-span-1 row-span-1 lg:col-span-1 lg:row-span-1">
           <img
             src={feature_img}
             alt="medical image"
