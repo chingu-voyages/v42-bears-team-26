@@ -22,7 +22,7 @@ function Navbar() {
                 <Button
                   className="secondary1 py-1 px-12"
                   label="Sign In"
-                  onClick={() => navigate('/home')}
+                  onClick={() => navigate('/dashboard')}
                 />
                 <Button className="primary1 py-2 px-12" label="Create" />
               </div>

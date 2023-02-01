@@ -13,6 +13,12 @@ const data = [
     doc: 'Add my results to my medical document',
     timeLeft: '2 days left',
   },
+
+  {
+    name: 'Doctors appointment',
+    doc: 'Go see the doctor',
+    timeLeft: '1 days left',
+  },
 ]
 export default function index() {
   const color = ['linearColor_orange', 'linearColor_peacock']
@@ -20,7 +26,10 @@ export default function index() {
   return (
     <div>
       {data.map((event) => (
-        <div className="flex p-3 border border-radius-20 border-gray h-22 my-5">
+        <div
+          className="flex p-3 border border-radius-20 border-gray h-22 my-5"
+          key={event.name}
+        >
           <div
             className={`flex-initial bg-${
               color[Math.floor(Math.random() * 2) + 0]
