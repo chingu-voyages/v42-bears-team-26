@@ -24,9 +24,9 @@ const navItems = [
     to: '/medication',
   },
   {
-    title: 'Calender',
+    title: 'Calendar',
     icon: <MdDateRange className="text-2xl" />,
-    to: '#',
+    to: '/calendar',
   },
   {
     title: 'Medical Results',

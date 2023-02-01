@@ -8,6 +8,7 @@ const pageTitles: { [key in EnumRoutes]: string } = {
   '/dashboard': 'Dashboard',
   '/medication': 'Medication tracking',
   '/test-results': 'Documents',
+  '/calendar': 'Calendar',
 }
 
 const mapRouteToPageTitle = () => {
