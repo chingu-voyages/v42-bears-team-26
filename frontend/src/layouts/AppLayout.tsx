@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { TitleBar } from '../components/TitleBar'
 import { EnumRoutes } from '../routes'
+import Navigationbar from '../components/Navigationbar'
 
 const pageTitles: { [key in EnumRoutes]: string } = {
   '/dashboard': 'Dashboard',
@@ -16,19 +17,11 @@ const mapRouteToPageTitle = () => {
 
 export const AppLayout = () => {
   return (
-    <div className="flex w-screen">
-      <div className="grow w-40">
-        <div>
-          <Link to="dashboard">Dashboard</Link>
-        </div>
-        <div>
-          <Link to="medication">Medication</Link>
-        </div>
-        <div>
-          <Link to="test-results">Test results</Link>
-        </div>
+    <div className="grid grid-cols-1 grid-rows-9 lg:grid-cols-5 lg:grid-rows-1 w-screen">
+      <div className="col-span-1 row-span-1 border-r-2 border-gray">
+        <Navigationbar />
       </div>
-      <div className="w-full">
+      <div className="col-span-1 row-span-8 lg:col-span-4 lg:row-span-1">
         <TitleBar
           title={mapRouteToPageTitle()}
           message={`Hi Sarah welcome to your HealthHero ${mapRouteToPageTitle()}`}

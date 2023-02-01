@@ -5,6 +5,7 @@ import {
   DevicePhoneMobileIcon,
   EnvelopeIcon,
 } from '@heroicons/react/24/solid'
+import React from 'react'
 
 function Section_2() {
   const inputStyles = `mb-5 w-full rounded-lg bg-white px-5 py-3 placeholder-slate-200`
@@ -14,7 +15,7 @@ function Section_2() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: React.SyntheticEvent) => {
     const isValid = await trigger()
     if (!isValid) {
       e.preventDefault()

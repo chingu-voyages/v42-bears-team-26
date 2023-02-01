@@ -7,7 +7,7 @@ function HeroSection() {
     <>
       <div
         style={{ backgroundImage: `url(${hero_img})` }}
-        className="bg-cover text-primaryColor flex flex-col items-center gap-12 py-[15rem] col-span-1 row-span-2 text-center"
+        className="bg-cover text-primaryColor_white flex flex-col items-center gap-12 py-[15rem] col-span-1 row-span-2 text-center"
       >
         <h1 className="text-5xl font-bold">
           Take the havoc out of Health Monitoring
