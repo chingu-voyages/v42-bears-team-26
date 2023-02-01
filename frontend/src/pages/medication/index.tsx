@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import CostumePage from '../../components/customPage'
 import SearchInput from '../../components/searchInput'
 import { Table } from '../../components/table/table'
 import { TableBody, TableField, TableRow } from '../../components/table/tbody'
@@ -47,10 +46,7 @@ export const MedicationPage = () => {
   }
 
   return (
-    <CostumePage
-      title="Medication Tracking"
-      message=" Hi Sarah, welcome to your HealthHero Medication tracking"
-    >
+    <>
       <div className="border border-white rounded-lg bg-white p-10 w-full">
         {showModal && (
           <Form
@@ -89,6 +85,6 @@ export const MedicationPage = () => {
           className="primary2"
         />
       </div>
-    </CostumePage>
+    </>
   )
 }
