@@ -5,6 +5,7 @@ import {
   TestResultsPage,
   MedicationPage,
   LandingPage,
+  CalendarPage,
 } from '../Pages'
 
 export const AppRoutes = () => {
@@ -14,6 +15,7 @@ export const AppRoutes = () => {
       <Route path="/home" element={<HomePage />} />
       <Route path="/medication" element={<MedicationPage />} />
       <Route path="/test-results" element={<TestResultsPage />} />
+      <Route path="/calendar" element={<CalendarPage />} />
     </Routes>
   )
 }
