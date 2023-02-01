@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GrClose } from 'react-icons/gr'
+import { MedicationEntry } from '..'
 import Button from '../../../components/Button'
 
 const days = [
@@ -12,6 +13,8 @@ const days = [
   'Saturday',
 ]
 
+const intakeTime = ['breakfast', 'lunch', 'dinner', 'bedtime']
+
 const FormFieldLabel = ({ label }: { label: string }) => (
   <label className="mb-2 block text-sm font-medium font-sans">{label}</label>
 )
@@ -23,11 +26,19 @@ const FormTitle = ({ title }: { title: string }) => (
   <div className="text-lg font-medium">{title}</div>
 )
 
-const Input = () => (
+const Input = ({
+  value,
+  onChange,
+}: {
+  value: string
+  onChange: (value: string) => void
+}) => (
   <div>
     <input
       className="w-full py-2 px-3 focus:outline-none border-2 border-black  rounded-2xl"
       type="text"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
       required
     />
   </div>
@@ -73,34 +84,97 @@ const CheckBox = ({
   )
 }
 
-export const Form = ({ title, onOk }: { title: string; onOk: () => void }) => {
+export const Form = ({
+  title,
+  onOk,
+  onCancel,
+}: {
+  title: string
+  onOk: (data: MedicationEntry) => void
+  onCancel: () => void
+}) => {
+  const [medicationName, setMedicationName] = useState('')
+  const [additionalContent, setAdditionalContent] = useState('')
+  const [frequency, setFrequency] =
+    useState<MedicationEntry['frequency']>('hourly')
+  const [dosage, setDosage] = useState(1)
+
+  const handleSubmit = () => {
+    onOk({ name: medicationName, dosage, frequency })
+  }
+
   return (
     <div className="h-screen w-screen absolute top-0 left-0 bg-secondaryColor_black/[0.6]">
       <div className=" bg-primaryColor_white fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] p-10 rounded-[40px] border-2">
         <div className="flex items-center justify-between mb-8">
           <FormTitle title={title} />
-          <GrClose onClick={onOk} className="cursor-pointer" />
+          <GrClose onClick={onCancel} className="cursor-pointer" />
         </div>
         <FormSection>
           <FormFieldLabel label="Medication name" />
-          <Input />
+          <Input
+            value={medicationName}
+            onChange={(value) => setMedicationName(value)}
+          />
         </FormSection>
         <FormSection>
           <FormFieldLabel label="Dosage" />
+          <div className="mb-3">
+            <div className="mb-2 inline-block mr-3">
+              <Select
+                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
+            <div className="inline-block mr-3">
+              <Select
+                options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
+            <div className="inline-block">
+              <Select
+                options={['before', 'after']}
+                onChange={() => {
+                  return undefined
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 items-center w-100">
+            {intakeTime.map((time) => (
+              <div className="flex w-[120px] items-center gap-2" key={time}>
+                <CheckBox
+                  onSelect={(checked) => {
+                    console.log({ intakeTime, checked })
+                  }}
+                  label={time}
+                />
+              </div>
+            ))}
+          </div>
+        </FormSection>
+        <FormSection>
+          <FormFieldLabel label="Frequency" />
           <div className="mb-2 inline-block mr-3">
             <Select
               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={() => {
-                return undefined
+              onChange={(option) => {
+                console.log(option)
+                setDosage(option as number)
               }}
             />
           </div>
 
           <div className="inline-block">
             <Select
-              options={['Hourly', 'Daily', 'Weekly']}
-              onChange={() => {
-                return undefined
+              options={['hourly', 'daily', 'weekly']}
+              onChange={(option) => {
+                setFrequency(option as MedicationEntry['frequency'])
               }}
             />
           </div>
@@ -122,17 +196,20 @@ export const Form = ({ title, onOk }: { title: string; onOk: () => void }) => {
         </FormSection>
         <FormSection>
           <FormFieldLabel label="Additional notification content" />
-          <Input />
+          <Input
+            value={additionalContent}
+            onChange={(value) => setAdditionalContent(value)}
+          />
         </FormSection>
         <div className="flex justify-center gap-6 mt-10">
           <Button
             label="Add"
-            onClick={onOk}
+            onClick={handleSubmit}
             className="py-2 px-4 rounded-full bg-secondaryColor_black border-secondaryColor_black border-2 text-primaryColor_white w-[100px]"
           />
           <Button
             label="Cancel"
-            onClick={onOk}
+            onClick={onCancel}
             className="py-2 px-4 rounded-full text-secondaryColor_black w-[100px] border-secondaryColor_black border-2 bg-primaryColor_white"
           />
         </div>
