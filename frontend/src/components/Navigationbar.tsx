@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import { Link, useNavigate } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import {
   MdDashboard,
   MdAssessment,
@@ -91,11 +92,12 @@ function Navigationbar() {
             <section className="mb-12 lg:block hidden">
               <div className="px-10 py-12 rounded-lg border-secondaryColor_black border-0 flex flex-col gap-6 items-center bg-gradient-to-r to-linearColor_orange from-linearColor_pink">
                 <h1 className="font-bold">Got a Question</h1>
-                <Button
-                  label="Ask"
-                  onClick={() => navigate('/')}
-                  className="py-2 px-4 rounded-full text-primaryColor_white w-[100px] bg-secondaryColor_black"
-                />
+                <HashLink to="/#chat-with-us">
+                  <Button
+                    label="Ask"
+                    className="py-2 px-4 rounded-full text-primaryColor_white w-[100px] bg-secondaryColor_black"
+                  />
+                </HashLink>
               </div>
             </section>
             <section className="flex flex-row gap-3">
