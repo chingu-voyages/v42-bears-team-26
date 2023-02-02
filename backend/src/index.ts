@@ -11,22 +11,17 @@ import cors from 'cors'
 const app = express()
 const PORT = process.env.PORT || 4000
 
-const corsOptions = {
-  origin: 'https://health-hero-backend.onrender.com/',
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 
 app.use(cors())
 
-app.use('/users', cors(corsOptions), UserRoute)
-app.use('/test-results', cors(corsOptions), TestResultRoute)
-app.use('/medications', cors(corsOptions), MedicationRoute)
+app.use('/users', UserRoute)
+app.use('/test-results', TestResultRoute)
+app.use('/medications', MedicationRoute)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
-app.get('/', cors(corsOptions), async (_, res) => {
+app.get('/', async (_, res) => {
   res.send({
     res: 'Health Hero backend is running! 🌈',
     dbConnected: Boolean(dbClient),
