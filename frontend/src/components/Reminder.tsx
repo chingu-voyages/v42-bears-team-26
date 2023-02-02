@@ -20,21 +20,23 @@ const reminderList = [
 ]
 
 function Reminder() {
-  console.log(reminderList);
-  
+  console.log(reminderList)
+
   return (
     <>
-      <div className='bg-secondaryColor_aegean text-primaryColor_white flex flex-col gap-6 py-6 rounded mx-10'>
-        <section className='flex flex-col items-center'>
+      <div className="bg-secondaryColor_aegean text-primaryColor_white flex flex-col gap-6 py-6 rounded mx-10">
+        <section className="flex flex-col items-center">
           <span>Daily</span>
-          <h1 className='font-bold text-2xl'>Reminder</h1>
+          <h1 className="font-bold text-2xl">Reminder</h1>
         </section>
 
-        <section className='flex flex-row justify-center gap-10'>
+        <section className="flex flex-row justify-center gap-10">
           {reminderList.map((item) => {
             return (
-              <div className='flex flex-col items-center gap-4'>
-                <h2>{item.medicineName} at {item.time}</h2>
+              <div className="flex flex-col items-center gap-4">
+                <h2>
+                  {item.medicineName} at {item.time}
+                </h2>
                 <Button
                   label="Taken"
                   onClick={() => item.taken == true}
