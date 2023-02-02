@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "tsc:check": "tsc --noEmit",
     "lint": "eslint src",
