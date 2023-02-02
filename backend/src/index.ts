@@ -19,11 +19,11 @@ const corsOptions = {
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 
-app.use(cors())
+app.use(cors(corsOptions))
 
-app.use('/users', cors(corsOptions), UserRoute)
-app.use('/test-results', cors(corsOptions), TestResultRoute)
-app.use('/medications', cors(corsOptions), MedicationRoute)
+app.use('/users', UserRoute)
+app.use('/test-results', TestResultRoute)
+app.use('/medications', MedicationRoute)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 app.get('/', cors(corsOptions), async (_, res) => {
