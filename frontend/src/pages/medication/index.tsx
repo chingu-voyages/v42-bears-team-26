@@ -6,6 +6,7 @@ import { TableBody, TableField, TableRow } from '../../components/table/tbody'
 import { TableHead } from '../../components/table/thead'
 import { Form } from './components'
 import Button from '../../components/Button'
+import { BACKEND_URL } from '../../constants'
 
 export type MedicationEntry = {
   name: string
@@ -21,7 +22,7 @@ export const MedicationPage = () => {
   const [medications, setMedications] = useState<MedicationEntry[]>([])
   const getMedication = async () => {
     try {
-      const result = await axios.get('/api/medications') // To update URL
+      const result = await axios.get(`${BACKEND_URL}/medications`) // To update URL
 
       setMedications(result.data.res)
     } catch (error) {
@@ -34,7 +35,7 @@ export const MedicationPage = () => {
 
   const handleAddMedication = async (values: MedicationEntry) => {
     const { data }: { data: MedicationEntry } = await axios.post(
-      '/api/medications',
+      `${BACKEND_URL}/api/medications`,
       values
     )
 

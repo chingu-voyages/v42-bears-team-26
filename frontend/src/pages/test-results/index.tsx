@@ -6,6 +6,7 @@ import { TableHead } from '../../components/table/thead'
 import { TableBody } from '../../components/table/tbody'
 import { TableField, TableRow } from '../../components/table/tbody'
 import moment from 'moment'
+import { BACKEND_URL } from '../../constants'
 
 export const TestResultsPage = () => {
   const tableHeaders = ['Name', 'Description', 'Date']
@@ -19,7 +20,7 @@ export const TestResultsPage = () => {
   >([])
   const getTestResult = async () => {
     try {
-      const result = await axios.get('api/test-results')
+      const result = await axios.get(`${BACKEND_URL}/test-results`)
 
       setTestResult(result.data.res)
     } catch (error) {

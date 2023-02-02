@@ -76,9 +76,9 @@ function Navigationbar() {
             <section className="flex flex-col">
               <ul className="flex flex-col">
                 <li>
-                  {navItems.map((item) => {
+                  {navItems.map((item, i) => {
                     return (
-                      <Link to={item.to}>
+                      <Link to={item.to} key={i}>
                         <div className="flex flex-row gap-3 mb-6">
                           {item.icon}
                           <h3>{item.title}</h3>
