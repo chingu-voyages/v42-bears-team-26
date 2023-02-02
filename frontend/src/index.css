@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 /* buttons syles */
@@ -35,3 +38,7 @@
         border-radius: 25px;
     }
 }
+* {
+    font-family: "Poppins", sans-serif,
+}
+

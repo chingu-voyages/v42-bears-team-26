@@ -4,7 +4,7 @@ import Button from '../../../components/Button'
 function AboutSection() {
   return (
     <>
-      <div className="bg-primaryBrown flex flex-col items-center gap-6 py-12 col-span-1 row-span-2 text-center text-primaryColor">
+      <div className="bg-primaryColor_beige flex flex-col items-center gap-6 py-12 col-span-1 row-span-2 text-center text-primaryColor_white">
         <h1 className="text-3xl">About HealthHero</h1>
         <p className="px-[14rem]">
           In quo quaerimus, non emolumento aliquo, sed ipsius honestatis decore
