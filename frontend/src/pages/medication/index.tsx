@@ -35,7 +35,7 @@ export const MedicationPage = () => {
 
   const handleAddMedication = async (values: MedicationEntry) => {
     const { data }: { data: MedicationEntry } = await axios.post(
-      `${BACKEND_URL}/api/medications`,
+      `${BACKEND_URL}/medications`,
       values
     )
 
