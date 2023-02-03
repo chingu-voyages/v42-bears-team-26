@@ -1,4 +1,4 @@
-function Section_4() {
+function Footer_2() {
   return (
     <div className="bg-gray">
       <section id="footernote" className="ml-20 mr-20 items-center md:flex">
@@ -27,4 +27,4 @@ function Section_4() {
   )
 }
 
-export default Section_4
+export default Footer_2;

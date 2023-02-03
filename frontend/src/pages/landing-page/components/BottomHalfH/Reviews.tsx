@@ -46,7 +46,7 @@ const testimonials: Array<TestimonialType> = [
   },
 ]
 
-function Section_1() {
+function Reviews() {
   return (
     <div className="bg-yellow-50">
       <section id="testimonials" className="min-h-full py-10">
@@ -76,4 +76,4 @@ function Section_1() {
     </div>
   )
 }
-export default Section_1
+export default Reviews;

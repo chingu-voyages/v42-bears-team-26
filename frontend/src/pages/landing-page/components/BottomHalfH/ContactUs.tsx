@@ -7,7 +7,7 @@ import {
   EnvelopeIcon,
 } from '@heroicons/react/24/solid'
 
-function Section_2() {
+function ContactUs() {
   const inputStyles = `mb-5 w-full rounded-lg bg-white px-5 py-3 placeholder-slate-200`
   const {
     register,
@@ -150,4 +150,4 @@ function Section_2() {
   )
 }
 
-export default Section_2
+export default ContactUs;

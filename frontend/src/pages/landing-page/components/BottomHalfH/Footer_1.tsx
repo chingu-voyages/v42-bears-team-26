@@ -1,8 +1,8 @@
 //import React from 'react'
-import FACEBOOK from '../../../../../assets/facebook.svg';
-import TWITTER from '../../../../../assets/twitter.svg';
-import LINKEDIN from '../../../../../assets/linkedin.svg';
-import YOUTUBE from '../../../../../assets/youtube.svg';
+import FACEBOOK from '../../../../../assets/facebook.svg'
+import TWITTER from '../../../../../assets/twitter.svg'
+import LINKEDIN from '../../../../../assets/linkedin.svg'
+import YOUTUBE from '../../../../../assets/youtube.svg'
 import HeaderText from '../shared/HeaderText'
 import Menu from './Menu'
 import { MenuType } from '../shared/types'
@@ -45,7 +45,7 @@ const menus: Array<MenuType> = [
   },
 ]
 
-function Section_3() {
+function Footer_1() {
   return (
     <div className="bg-primaryColor_beige">
       <section id="menus" className="justify-between gap-4 md:flex pt-4 mb-14">
@@ -60,15 +60,15 @@ function Section_3() {
               </button>
 
               <button>
-              <TWITTER className="w-5 h-5 fill-current" />
+                <TWITTER className="w-5 h-5 fill-current" />
               </button>
 
               <button>
-              <LINKEDIN className="w-5 h-5 fill-current" />
+                <LINKEDIN className="w-5 h-5 fill-current" />
               </button>
 
               <button>
-              <YOUTUBE className="w-5 h-5 fill-current" />
+                <YOUTUBE className="w-5 h-5 fill-current" />
               </button>
             </div>
           </div>
@@ -100,4 +100,4 @@ function Section_3() {
     </div>
   )
 }
-export default Section_3
+export default Footer_1;
