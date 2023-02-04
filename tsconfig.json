@@ -10,6 +10,7 @@
     "checkJs": true,
     "alwaysStrict": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "skipLibCheck": true
   }
 }
