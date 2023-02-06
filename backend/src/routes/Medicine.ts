@@ -12,22 +12,26 @@ MedicineRoute.get('/', async (_, res) => {
 
 MedicineRoute.post('/', async (req, res) => {
   const values = req.body
-  let currentDate = new Date().toJSON().slice(0, 10);
-  const default_med_taken_data = (
-      `{"tracker_data": [{
+  const currentDate = new Date().toJSON().slice(0, 10)
+  const default_med_taken_data = `{"tracker_data": [{
       "date": "${currentDate}",
       "is_taken": "FALSE"
     }, {
-      "date": "${currentDate+1}",
+      "date": "${currentDate + 1}",
       "is_taken": "FALSE"
     }
-  ]}`)
+  ]}`
 
   try {
     const data = await dbClient.query(
       `insert into medicines(med_name, dosage_amount, dosage_unit, frequency_amount) 
       values($1, $2, $3, $4) returning *`,
-      [values.med_name, values.dosage_amount, values.dosage_unit, values.frequency_amount]
+      [
+        values.med_name,
+        values.dosage_amount,
+        values.dosage_unit,
+        values.frequency_amount,
+      ]
     )
     const med_id = data.rows[0].med_id
     console.log(med_id)
