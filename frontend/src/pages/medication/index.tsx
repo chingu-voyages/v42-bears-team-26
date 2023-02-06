@@ -15,7 +15,7 @@ export type MedicationEntry = {
   frequency_amount: number
   frequency_unit: string //'hourly' | 'daily' | 'weekly'
   is_inUse: boolean
-  reminder_time: any // time in 24 hours format with time zone
+  reminder_times: string[] // time in 24 hours format with time zone
   is_current: boolean
   amount: number
   threshold_amount: number
@@ -55,7 +55,7 @@ export const MedicationPage = () => {
         dosage_amount: data.dosage_amount,
         dosage_unit: data.dosage_unit,
         is_inUse: data.is_inUse,
-        reminder_time: data.reminder_time,
+        reminder_times: data.reminder_times,
         is_current: data.is_current,
         amount: data.amount,
         threshold_amount: data.threshold_amount,

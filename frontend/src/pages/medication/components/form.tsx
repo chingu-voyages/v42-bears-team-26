@@ -1,19 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { MedicationEntry } from '..'
 import Button from '../../../components/Button'
-
-const days = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-]
-
-// const intakeTime = ['breakfast', 'lunch', 'dinner', 'bedtime']
 
 const FormFieldLabel = ({ label }: { label: string }) => (
   <label className="mb-2 block text-sm font-medium font-sans">{label}</label>
@@ -83,24 +71,24 @@ const Select = ({
   </div>
 )
 
-const CheckBox = ({
-  label,
-  onSelect,
-}: {
-  label: string
-  onSelect: (isChecked: boolean) => void
-}) => {
-  return (
-    <>
-      <input
-        type="checkbox"
-        onChange={(e) => onSelect(e.target.checked)}
-        className="form-check-input h-4 w-4 border-black border-[1px] rounded-sm bg-white checked:text-white checked:bg-blue-600 checked:border-blue-800 transition duration-200 mr-2 cursor-pointer"
-      />
-      <label>{label} </label>
-    </>
-  )
-}
+// const CheckBox = ({
+//   label,
+//   onSelect,
+// }: {
+//   label: string
+//   onSelect: (isChecked: boolean) => void
+// }) => {
+//   return (
+//     <>
+//       <input
+//         type="checkbox"
+//         onChange={(e) => onSelect(e.target.checked)}
+//         className="form-check-input h-4 w-4 border-black border-[1px] rounded-sm bg-white checked:text-white checked:bg-blue-600 checked:border-blue-800 transition duration-200 mr-2 cursor-pointer"
+//       />
+//       <label>{label} </label>
+//     </>
+//   )
+// }
 
 export const Form = ({
   title,
@@ -112,18 +100,37 @@ export const Form = ({
   onCancel: () => void
 }) => {
   const [medicationName, setMedicationName] = useState('')
-  const [frequencyAmount, setFrequencyAmount] = useState(3)
+  const [frequencyAmount, setFrequencyAmount] = useState(1)
   const [frequencyUnit, setFrequencyUnit] =
     useState<MedicationEntry['frequency_unit']>('daily')
   const [dosageAmount, setDosageAmount] = useState(1)
   const [dosageUnit, setDosageUnit] =
     useState<MedicationEntry['dosage_unit']>('pill')
-  const [isInUse, setIsInUse] = useState(true)
-  const [reminderTime, setReminderTime] = useState('18:00:00+00:00')
+  const [reminderTimes, setReminderTimes] = useState<string[]>(['08:00'])
   const [amount, setAmount] = useState(0)
   const [thresholdAmount, setThresholdAmount] = useState(0)
-  const [isCurrent, setIsCurrent] = useState(true)
   const [additionalContent, setAdditionalContent] = useState('')
+
+  const removeReminders = (start: number, count: number) => {
+    const reminders = [...reminderTimes]
+    reminders.splice(start, count)
+    setReminderTimes(reminders)
+  }
+
+  const addReminders = (number: number) => {
+    const newItems = Array(number).fill('08:00')
+    setReminderTimes((rs) => [...rs, ...newItems])
+  }
+
+  useEffect(() => {
+    if (frequencyAmount < reminderTimes.length) {
+      removeReminders(frequencyAmount - 1, frequencyAmount)
+    }
+
+    if (frequencyAmount > reminderTimes.length) {
+      addReminders(frequencyAmount - reminderTimes.length)
+    }
+  }, [frequencyAmount])
 
   const handleSubmit = () => {
     onOk({
@@ -132,17 +139,13 @@ export const Form = ({
       frequency_unit: frequencyUnit,
       dosage_amount: dosageAmount,
       dosage_unit: dosageUnit,
-      is_inUse: isInUse,
-      reminder_time: reminderTime,
-      is_current: isCurrent,
+      is_inUse: false,
+      reminder_times: reminderTimes,
+      is_current: false,
       amount: amount,
       threshold_amount: thresholdAmount,
     })
   }
-
-  setIsInUse(true)
-  setReminderTime('18:00:00+00:00')
-  setIsCurrent(true)
 
   return (
     <div className="h-screen w-screen absolute top-0 left-0 bg-secondaryColor_black/[0.6]">
@@ -165,7 +168,6 @@ export const Form = ({
               <Select
                 options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
                 onChange={(option) => {
-                  console.log(option)
                   setDosageAmount(option as number)
                 }}
               />
@@ -186,7 +188,6 @@ export const Form = ({
             <Select
               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
               onChange={(option) => {
-                console.log(option)
                 setFrequencyAmount(option as number)
               }}
             />
@@ -202,37 +203,30 @@ export const Form = ({
           </div>
         </FormSection>
         <FormSection>
-          <FormFieldLabel label="Select Weekdays" />
-          <div className="flex flex-wrap gap-2 items-center w-100">
-            {days.map((day) => (
-              <div className="flex w-[120px] items-center gap-2" key={day}>
-                <CheckBox
-                  onSelect={(checked) => {
-                    console.log({ day, checked })
-                  }}
-                  label={day}
-                />
-              </div>
-            ))}
-          </div>
-        </FormSection>
-        <FormSection>
           <FormFieldLabel label="Set reminder" />
           <div className="mb-3">
             <div className="mb-2 inline-block mr-3">
-              {/* {Array.from({length: frequency}, (item, index) => item = (index+ 1).toString()).map((item) => ( */}
-              {['1', '2', '3'].map((item) => (
-                <div className="flex w-[120px] items-center gap-2" key={item}>
-                  <div> {item}. </div>
-                  <input
-                    type="time"
-                    id="reminder"
-                    name="reminder"
-                    onChange={() => {
-                      return undefined
-                    }}
-                    key={item}
-                  />
+              {reminderTimes.map((reminder, index) => (
+                <div className="flex w-[120px] items-center gap-2" key={index}>
+                  <div className="timepicker relative form-floating mb-3 xl:w-96">
+                    <input
+                      type="time"
+                      id="reminder"
+                      className="w-full py-2 px-3 focus:outline-none border-2 border-black  rounded-2xl form-control block  text-base font-normal text-gray-700 bg-white bg-clip-padding border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 "
+                      name="reminder"
+                      value={reminder}
+                      onChange={(e) => {
+                        console.log(e.target.value)
+                        setReminderTimes((rs) => {
+                          return rs.map((r, i) => {
+                            if (i === index) return e.target.value
+                            return r
+                          })
+                        })
+                        return undefined
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
