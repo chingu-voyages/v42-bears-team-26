@@ -9,9 +9,16 @@ import Button from '../../components/Button'
 import { BACKEND_URL } from '../../constants'
 
 export type MedicationEntry = {
-  name: string
-  dosage: number
-  frequency: 'hourly' | 'daily' | 'weekly'
+  med_name: string
+  dosage_amount: number
+  dosage_unit: string //'pill', 'tablet', 'sachet', 'tablespoon', 'teaspoon'
+  frequency_amount: number
+  frequency_unit: string //'hourly' | 'daily' | 'weekly'
+  is_inUse: boolean
+  reminder_time: any // time in 24 hours format with time zone
+  is_current: boolean
+  amount: number
+  threshold_amount: number
 }
 
 export const MedicationPage = () => {
@@ -22,7 +29,7 @@ export const MedicationPage = () => {
   const [medications, setMedications] = useState<MedicationEntry[]>([])
   const getMedication = async () => {
     try {
-      const result = await axios.get(`${BACKEND_URL}/medications`) // To update URL
+      const result = await axios.get(`${BACKEND_URL}/medicine`) // To update URL
 
       setMedications(result.data.res)
     } catch (error) {
@@ -35,13 +42,24 @@ export const MedicationPage = () => {
 
   const handleAddMedication = async (values: MedicationEntry) => {
     const { data }: { data: MedicationEntry } = await axios.post(
-      `${BACKEND_URL}/medications`,
+      `${BACKEND_URL}/medicine`,
       values
     )
 
     setMedications((medications) => [
       ...medications,
-      { name: data.name, frequency: data.frequency, dosage: data.dosage },
+      {
+        med_name: data.med_name,
+        frequency_amount: data.frequency_amount,
+        frequency_unit: data.frequency_unit,
+        dosage_amount: data.dosage_amount,
+        dosage_unit: data.dosage_unit,
+        is_inUse: data.is_inUse,
+        reminder_time: data.reminder_time,
+        is_current: data.is_current,
+        amount: data.amount,
+        threshold_amount: data.threshold_amount,
+      },
     ])
     setShowModal(false)
   }
@@ -73,9 +91,19 @@ export const MedicationPage = () => {
                 color={i % 2 === 0 ? 'bg-secondaryColor_lace' : 'bg-white'}
                 key={i}
               >
-                <TableField value={result.name} />
-                <TableField value={result.dosage} />
-                <TableField value={result.frequency} />
+                <TableField value={result.med_name} />
+                <TableField
+                  value={
+                    result.dosage_amount.toString() + ' ' + result.dosage_unit
+                  }
+                />
+                <TableField
+                  value={
+                    result.frequency_amount.toString() +
+                    ' ' +
+                    result.frequency_unit
+                  }
+                />
               </TableRow>
             ))}
           </TableBody>

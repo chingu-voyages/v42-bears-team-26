@@ -13,7 +13,7 @@ const days = [
   'Saturday',
 ]
 
-const intakeTime = ['breakfast', 'lunch', 'dinner', 'bedtime']
+// const intakeTime = ['breakfast', 'lunch', 'dinner', 'bedtime']
 
 const FormFieldLabel = ({ label }: { label: string }) => (
   <label className="mb-2 block text-sm font-medium font-sans">{label}</label>
@@ -39,6 +39,24 @@ const Input = ({
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      required
+    />
+  </div>
+)
+
+const InputNum = ({
+  value,
+  onChange,
+}: {
+  value: number
+  onChange: (value: number) => void
+}) => (
+  <div>
+    <input
+      className="w-full py-2 px-3 focus:outline-none border-2 border-black  rounded-2xl"
+      type="number"
+      value={value}
+      onChange={(e) => onChange(+e.target.value)}
       required
     />
   </div>
@@ -94,14 +112,37 @@ export const Form = ({
   onCancel: () => void
 }) => {
   const [medicationName, setMedicationName] = useState('')
+  const [frequencyAmount, setFrequencyAmount] = useState(3)
+  const [frequencyUnit, setFrequencyUnit] =
+    useState<MedicationEntry['frequency_unit']>('daily')
+  const [dosageAmount, setDosageAmount] = useState(1)
+  const [dosageUnit, setDosageUnit] =
+    useState<MedicationEntry['dosage_unit']>('pill')
+  const [isInUse, setIsInUse] = useState(true)
+  const [reminderTime, setReminderTime] = useState('18:00:00+00:00')
+  const [amount, setAmount] = useState(0)
+  const [thresholdAmount, setThresholdAmount] = useState(0)
+  const [isCurrent, setIsCurrent] = useState(true)
   const [additionalContent, setAdditionalContent] = useState('')
-  const [frequency, setFrequency] =
-    useState<MedicationEntry['frequency']>('hourly')
-  const [dosage, setDosage] = useState(1)
 
   const handleSubmit = () => {
-    onOk({ name: medicationName, dosage, frequency })
+    onOk({
+      med_name: medicationName,
+      frequency_amount: frequencyAmount,
+      frequency_unit: frequencyUnit,
+      dosage_amount: dosageAmount,
+      dosage_unit: dosageUnit,
+      is_inUse: isInUse,
+      reminder_time: reminderTime,
+      is_current: isCurrent,
+      amount: amount,
+      threshold_amount: thresholdAmount,
+    })
   }
+
+  setIsInUse(true)
+  setReminderTime('18:00:00+00:00')
+  setIsCurrent(true)
 
   return (
     <div className="h-screen w-screen absolute top-0 left-0 bg-secondaryColor_black/[0.6]">
@@ -118,44 +159,25 @@ export const Form = ({
           />
         </FormSection>
         <FormSection>
-          <FormFieldLabel label="Dosage" />
+          <FormFieldLabel label="Dosage (intake amount)" />
           <div className="mb-3">
             <div className="mb-2 inline-block mr-3">
               <Select
                 options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                onChange={() => {
-                  return undefined
+                onChange={(option) => {
+                  console.log(option)
+                  setDosageAmount(option as number)
                 }}
               />
             </div>
             <div className="inline-block mr-3">
               <Select
-                options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
-                onChange={() => {
-                  return undefined
+                options={['pill', 'tablet', 'sachet', 'tablespoon', 'teaspoon']}
+                onChange={(option) => {
+                  setDosageUnit(option as MedicationEntry['dosage_unit'])
                 }}
               />
             </div>
-            <div className="inline-block">
-              <Select
-                options={['before', 'after']}
-                onChange={() => {
-                  return undefined
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2 items-center w-100">
-            {intakeTime.map((time) => (
-              <div className="flex w-[120px] items-center gap-2" key={time}>
-                <CheckBox
-                  onSelect={(checked) => {
-                    console.log({ intakeTime, checked })
-                  }}
-                  label={time}
-                />
-              </div>
-            ))}
           </div>
         </FormSection>
         <FormSection>
@@ -165,7 +187,7 @@ export const Form = ({
               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
               onChange={(option) => {
                 console.log(option)
-                setDosage(option as number)
+                setFrequencyAmount(option as number)
               }}
             />
           </div>
@@ -174,13 +196,13 @@ export const Form = ({
             <Select
               options={['hourly', 'daily', 'weekly']}
               onChange={(option) => {
-                setFrequency(option as MedicationEntry['frequency'])
+                setFrequencyUnit(option as MedicationEntry['frequency_unit'])
               }}
             />
           </div>
         </FormSection>
         <FormSection>
-          <FormFieldLabel label="Days" />
+          <FormFieldLabel label="Select Weekdays" />
           <div className="flex flex-wrap gap-2 items-center w-100">
             {days.map((day) => (
               <div className="flex w-[120px] items-center gap-2" key={day}>
@@ -192,6 +214,41 @@ export const Form = ({
                 />
               </div>
             ))}
+          </div>
+        </FormSection>
+        <FormSection>
+          <FormFieldLabel label="Set reminder" />
+          <div className="mb-3">
+            <div className="mb-2 inline-block mr-3">
+              {/* {Array.from({length: frequency}, (item, index) => item = (index+ 1).toString()).map((item) => ( */}
+              {['1', '2', '3'].map((item) => (
+                <div className="flex w-[120px] items-center gap-2" key={item}>
+                  <div> {item}. </div>
+                  <input
+                    type="time"
+                    id="reminder"
+                    name="reminder"
+                    onChange={() => {
+                      return undefined
+                    }}
+                    key={item}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </FormSection>
+        <FormSection>
+          <div className="mb-3">
+            <div className="mb-2 inline-block mr-3">
+              <FormFieldLabel label="Inventory amount" />
+              <InputNum value={amount} onChange={(value) => setAmount(value)} />
+              <FormFieldLabel label="Threshold amount" />
+              <InputNum
+                value={thresholdAmount}
+                onChange={(value) => setThresholdAmount(value)}
+              />
+            </div>
           </div>
         </FormSection>
         <FormSection>
