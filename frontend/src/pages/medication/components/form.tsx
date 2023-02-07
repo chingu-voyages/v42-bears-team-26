@@ -205,7 +205,7 @@ export const Form = ({
         <FormSection>
           <FormFieldLabel label="Set reminder" />
           <div className="mb-3">
-            <div className="mb-2 inline-block mr-3">
+            <div className="mb-2 flex flex-wrap mr-3">
               {reminderTimes.map((reminder, index) => (
                 <div className="flex w-[120px] items-center gap-2" key={index}>
                   <div className="timepicker relative form-floating mb-3 xl:w-96">
@@ -234,14 +234,18 @@ export const Form = ({
         </FormSection>
         <FormSection>
           <div className="mb-3">
-            <div className="mb-2 inline-block mr-3">
-              <FormFieldLabel label="Inventory amount" />
-              <InputNum value={amount} onChange={(value) => setAmount(value)} />
-              <FormFieldLabel label="Threshold amount" />
-              <InputNum
-                value={thresholdAmount}
-                onChange={(value) => setThresholdAmount(value)}
-              />
+            <div className="mb-2 flex mr-3">
+              <div>
+                <FormFieldLabel label="Inventory amount" />
+                <InputNum value={amount} onChange={(value) => setAmount(value)} />
+              </div>
+              <div>
+                <FormFieldLabel label="Threshold amount" />
+                <InputNum
+                  value={thresholdAmount}
+                  onChange={(value) => setThresholdAmount(value)}
+                />
+              </div>
             </div>
           </div>
         </FormSection>
