@@ -2,7 +2,12 @@ import express from 'express'
 import morgan from 'morgan'
 import swaggerUI from 'swagger-ui-express'
 import swaggerDocument from '../src/swagger.json'
-import { UserRoute, TestResultRoute, MedicationRoute, MedicineRoute } from './routes'
+import {
+  UserRoute,
+  TestResultRoute,
+  MedicationRoute,
+  MedicineRoute,
+} from './routes'
 import { dbClient } from './db'
 import { isDevelopmentMode } from './utils'
 import bodyParser from 'body-parser'

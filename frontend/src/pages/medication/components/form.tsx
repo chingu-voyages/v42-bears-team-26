@@ -237,7 +237,10 @@ export const Form = ({
             <div className="mb-2 flex mr-3">
               <div>
                 <FormFieldLabel label="Inventory amount" />
-                <InputNum value={amount} onChange={(value) => setAmount(value)} />
+                <InputNum
+                  value={amount}
+                  onChange={(value) => setAmount(value)}
+                />
               </div>
               <div>
                 <FormFieldLabel label="Threshold amount" />

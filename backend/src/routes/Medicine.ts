@@ -12,12 +12,15 @@ MedicineRoute.get('/', async (_, res) => {
 
 MedicineRoute.post('/', async (req, res) => {
   const values = req.body
-  const currentDate = new Date().toJSON().slice(0, 10)
+  const today = new Date()
+  const tomorrow = new Date(today)
+  tomorrow.setDate(tomorrow.getDate() +1)
+
   const default_med_taken_data = `{"tracker_data": [{
-      "date": "${currentDate}",
+      "date": "${today.toJSON().slice(0,10)}",
       "is_taken": "FALSE"
     }, {
-      "date": "${currentDate + 1}",
+      "date": "${tomorrow.toJSON().slice(0,10)}",
       "is_taken": "FALSE"
     }
   ]}`
