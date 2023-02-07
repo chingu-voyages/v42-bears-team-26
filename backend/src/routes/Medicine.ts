@@ -14,13 +14,13 @@ MedicineRoute.post('/', async (req, res) => {
   const values = req.body
   const today = new Date()
   const tomorrow = new Date(today)
-  tomorrow.setDate(tomorrow.getDate() +1)
+  tomorrow.setDate(tomorrow.getDate() + 1)
 
   const default_med_taken_data = `{"tracker_data": [{
-      "date": "${today.toJSON().slice(0,10)}",
+      "date": "${today.toJSON().slice(0, 10)}",
       "is_taken": "FALSE"
     }, {
-      "date": "${tomorrow.toJSON().slice(0,10)}",
+      "date": "${tomorrow.toJSON().slice(0, 10)}",
       "is_taken": "FALSE"
     }
   ]}`

@@ -124,7 +124,7 @@ export const Form = ({
 
   useEffect(() => {
     if (frequencyAmount < reminderTimes.length) {
-      removeReminders(frequencyAmount - 1, frequencyAmount)
+      removeReminders(frequencyAmount, reminderTimes.length)
     }
 
     if (frequencyAmount > reminderTimes.length) {
