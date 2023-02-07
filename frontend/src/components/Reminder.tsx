@@ -39,7 +39,7 @@ function Reminder() {
                 </h2>
                 <Button
                   label="Taken"
-                  onClick={() => item.taken == true}
+                  onClick={() => alert(item.taken)}
                   className="py-2 px-4 rounded-full text-primaryColor_white w-[100px] bg-secondaryColor_denim"
                 />
               </div>
