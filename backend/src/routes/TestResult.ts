@@ -1,9 +1,10 @@
 import express = require('express')
 import { dbClient } from '../db'
+import { checkAuth } from '../middleware/checkAuth'
 
 const TestResultRoute = express.Router()
 
-TestResultRoute.get('/', async (_, res) => {
+TestResultRoute.get('/', checkAuth, async (_, res) => {
   const { rows: results } = await dbClient.query('select * from test_results')
 
   res.send({

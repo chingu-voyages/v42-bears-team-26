@@ -7,8 +7,11 @@ import { TableBody } from '../../components/table/tbody'
 import { TableField, TableRow } from '../../components/table/tbody'
 import moment from 'moment'
 import { BACKEND_URL } from '../../constants'
+import { useAppContext } from '../../contexts/main'
 
 export const TestResultsPage = () => {
+  const { authToken } = useAppContext()
+
   const tableHeaders = ['Name', 'Description', 'Date']
 
   const [testResult, setTestResult] = useState<
@@ -20,7 +23,9 @@ export const TestResultsPage = () => {
   >([])
   const getTestResult = async () => {
     try {
-      const result = await axios.get(`${BACKEND_URL}/test-results`)
+      const result = await axios.get(`${BACKEND_URL}/test-results`, {
+        headers: { Authorization: authToken },
+      })
 
       setTestResult(result.data.res)
     } catch (error) {
