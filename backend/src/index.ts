@@ -7,6 +7,7 @@ import {
   TestResultRoute,
   MedicationRoute,
   MedicineRoute,
+  ReminderRoute,
 } from './routes'
 import { dbClient } from './db'
 import { isDevelopmentMode } from './utils'
@@ -25,6 +26,7 @@ app.use('/users', UserRoute)
 app.use('/test-results', TestResultRoute)
 app.use('/medications', MedicationRoute)
 app.use('/medicine', MedicineRoute)
+app.use('/reminder', ReminderRoute)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 app.get('/', async (_, res) => {
