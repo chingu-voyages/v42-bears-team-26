@@ -2,7 +2,14 @@ import express from 'express'
 import morgan from 'morgan'
 import swaggerUI from 'swagger-ui-express'
 import swaggerDocument from '../src/swagger.json'
-import { UserRoute, TestResultRoute, MedicationRoute, Auth } from './routes'
+import {
+  UserRoute,
+  TestResultRoute,
+  MedicationRoute,
+  MedicineRoute,
+  ReminderRoute,
+  Auth,
+} from './routes'
 import { dbClient } from './db'
 import { isDevelopmentMode } from './utils'
 import bodyParser from 'body-parser'
@@ -20,6 +27,8 @@ app.use('/auth', Auth)
 app.use('/users', UserRoute)
 app.use('/test-results', TestResultRoute)
 app.use('/medications', MedicationRoute)
+app.use('/medicine', MedicineRoute)
+app.use('/reminder', ReminderRoute)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 app.get('/', async (_, res) => {

@@ -16,7 +16,7 @@ export const Modal = ({
   Actions?: React.ReactNode
   children: React.ReactNode
 }) => (
-  <div className="h-screen w-screen absolute top-0 left-0 bg-secondaryColor_black/[0.6]">
+  <div className="h-screen w-screen top-0 left-0 bg-secondaryColor_black/[0.6] fixed">
     <div className=" bg-primaryColor_white fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] p-10 rounded-[40px] border-2">
       <div className="flex items-center justify-between mb-8">
         <ModalTitle title={title} />

@@ -62,7 +62,7 @@ $ git clone https://github.com/chingu-voyages/v42-bears-team-26
   In the root folder, run `yarn` OR `yarn install`
 
 - To start the webapp (both frontend and backend):
-  In the root folder, run: `yarn app`
+  In the root folder, run: `yarn dev`
   This script will start frontend browser automatically, and start backend server on port 4000. 
   You can open a browser and go to `localhost:4000` to test the server.
   
