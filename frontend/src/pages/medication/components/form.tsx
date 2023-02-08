@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { GrClose } from 'react-icons/gr'
 import { MedicationEntry } from '..'
 import Button from '../../../components/Button'
 import { Input } from '../../../components/Input'
@@ -11,10 +10,6 @@ const FormFieldLabel = ({ label }: { label: string }) => (
 const FormSection = ({ children }: { children: React.ReactNode }) => {
   return <div className="my-5">{children}</div>
 }
-
-const FormTitle = ({ title }: { title: string }) => (
-  <div className="text-lg font-medium">{title}</div>
-)
 
 const InputNum = ({
   value,

@@ -8,11 +8,9 @@ const FormSection = ({ children }: { children: React.ReactNode }) => {
 }
 
 export const SignInModal = ({
-  show,
   onSignIn,
   onClose,
 }: {
-  show: boolean
   onSignIn: (email: string, password: string) => void
   onClose: () => void
 }) => {
@@ -25,8 +23,6 @@ export const SignInModal = ({
     onClose()
   }
 
-  if (!show) return null
-
   return (
     <Modal
       title="Log in"
@@ -35,7 +31,9 @@ export const SignInModal = ({
         <>
           <Button
             label="Sign in"
-            onClick={() => onSignIn(email, password)}
+            onClick={() => {
+              onSignIn(email, password)
+            }}
             className="py-2 px-4 rounded-full bg-secondaryColor_black border-secondaryColor_black border-2 text-primaryColor_white w-[100px]"
           />
           <Button
@@ -56,6 +54,7 @@ export const SignInModal = ({
       <FormSection>
         <Input
           value={password}
+          type="password"
           onChange={(p) => setPassword(p)}
           placeholder="Password"
         />

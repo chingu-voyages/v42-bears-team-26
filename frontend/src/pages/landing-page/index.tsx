@@ -47,11 +47,12 @@ const LandingPage = () => {
     <div className="font-roboto grid grid-cols-1 grid-rows-10 h-screen">
       {error && <ErrorModal onClose={clearError} error={error} />}
       {success && <SuccessModal message={success} onClose={clearSuccess} />}
-      <SignInModal
-        show={showSignInModal}
-        onSignIn={onSignIn}
-        onClose={() => setShowSignInModal(false)}
-      />
+      {showSignInModal && (
+        <SignInModal
+          onSignIn={onSignIn}
+          onClose={() => setShowSignInModal(false)}
+        />
+      )}
       <RegisterModal
         show={showRegisterModal}
         onRegister={onRegister}
