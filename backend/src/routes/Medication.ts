@@ -1,9 +1,10 @@
 import express = require('express')
 import { dbClient } from '../db'
-
+import { checkAuth } from '../middleware/checkAuth'
 const MedicationRoute = express.Router()
+// Passing checkAuth as middlewaare here, in this case checkAuth will verify the token sended by the user and inside this middleware we are able to take the payload(user info) from the toke
 
-MedicationRoute.get('/', async (_, res) => {
+MedicationRoute.get('/', checkAuth, async (_, res) => {
   const { rows: results } = await dbClient.query('select * from medications;')
 
   res.send({

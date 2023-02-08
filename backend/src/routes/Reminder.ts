@@ -28,13 +28,12 @@ ReminderRoute.get('/', async (_, res) => {
 // }
 // PS. depending on the UI and URL, whether reminder_id will be use as param (currently assume, not using param)
 
-
 ReminderRoute.put('/', async (req, res) => {
-    const values = req.body
-    
-try {
+  const values = req.body
+
+  try {
     const updateIsTaken = await dbClient.query(
-        `with today_taken as (
+      `with today_taken as (
             select ('{'||index-1||',is_taken}')::text[] as path
                 from med_reminder,
                     jsonb_array_elements(med_taken_data['tracker_data']) with ordinality arr(track_date, index)
@@ -46,15 +45,12 @@ try {
                 jsonb_set(med_taken_data['tracker_data'],today_taken.path, '"${values.is_taken}"', false)
             from today_taken
             where reminder_id = ${values.reminder_id} returning *`
-      )
+    )
 
     res.send(updateIsTaken.rows[0])
-} catch (e) {
+  } catch (e) {
     console.log(e)
-}
-
-
+  }
 })
-
 
 export default ReminderRoute

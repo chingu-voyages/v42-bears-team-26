@@ -8,6 +8,7 @@ import {
   MedicationRoute,
   MedicineRoute,
   ReminderRoute,
+  Auth,
 } from './routes'
 import { dbClient } from './db'
 import { isDevelopmentMode } from './utils'
@@ -22,6 +23,7 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
+app.use('/auth', Auth)
 app.use('/users', UserRoute)
 app.use('/test-results', TestResultRoute)
 app.use('/medications', MedicationRoute)
