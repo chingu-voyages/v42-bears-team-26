@@ -1,9 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button'
 
-function Navbar() {
-  const navigate = useNavigate()
+function Navbar({
+  onSignInSelect,
+  onRegisterSelect,
+}: {
+  onSignInSelect: () => void
+  onRegisterSelect: () => void
+}) {
   return (
     <>
       <nav className="bg-primaryColor py-4 col-span-1 row-span-1">
@@ -22,9 +26,13 @@ function Navbar() {
                 <Button
                   className="secondary1 py-1 px-12"
                   label="Sign In"
-                  onClick={() => navigate('/dashboard')}
+                  onClick={onSignInSelect}
                 />
-                <Button className="primary1 py-2 px-12" label="Create" />
+                <Button
+                  className="primary1 py-2 px-12"
+                  label="Create"
+                  onClick={onRegisterSelect}
+                />
               </div>
             </li>
           </ul>
