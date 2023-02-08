@@ -43,7 +43,7 @@ try {
         )
         update med_reminder
             set med_taken_data['tracker_data'] = 
-                jsonb_set(med_taken_data['tracker_data'],today_taken.path, '${values.is_taken}', false)
+                jsonb_set(med_taken_data['tracker_data'],today_taken.path, '"${values.is_taken}"', false)
             from today_taken
             where reminder_id = ${values.reminder_id} returning *`
       )
