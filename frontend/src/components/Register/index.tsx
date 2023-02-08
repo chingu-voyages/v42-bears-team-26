@@ -27,10 +27,10 @@ export const RegisterModal = ({
   const [password, setPassword] = useState('')
 
   const handleClose = () => {
-    setEmail('')
-    setPassword('')
     setFirstname('')
     setLastName('')
+    setEmail('')
+    setPassword('')
     onClose()
   }
 
@@ -44,7 +44,10 @@ export const RegisterModal = ({
         <>
           <Button
             label="Create"
-            onClick={() => onRegister(firstName, lastName, email, password)}
+            onClick={() => {
+              onRegister(firstName, lastName, email, password)
+              handleClose()
+            }}
             className="py-2 px-4 rounded-full bg-secondaryColor_black border-secondaryColor_black border-2 text-primaryColor_white w-[100px]"
           />
           <Button
