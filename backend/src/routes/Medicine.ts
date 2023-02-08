@@ -37,21 +37,27 @@ MedicineRoute.post('/', async (req, res) => {
       ]
     )
     const med_id = data.rows[0].med_id
-    console.log(med_id)
+    console.log(data.rows[0])
+    
+    for (let i = 0; i < values.reminder_times.length; i++) {
+      const reminder_data = await dbClient.query(
+        `INSERT INTO med_reminder (reminder_time, med_id, med_taken_data)
+        VALUES($1, $2, $3::jsonb) RETURNING *`,
+        [values.reminder_times[i], med_id, default_med_taken_data]
+      )
+      console.log(reminder_data.rows[0])
+    }
 
-    const reminder_data = await dbClient.query(
-      `INSERT INTO med_reminder (reminder_time, med_id, med_taken_data)
-      VALUES($1, $2, $3::jsonb) RETURNING *`,
-      [values.reminder_time, med_id, default_med_taken_data]
-    )
+    
 
     const inventory_data = await dbClient.query(
       `INSERT INTO med_inventory (amount, threshold_amount, med_id)
       VALUES($1, $2, $3) RETURNING *`,
       [values.amount, values.threshold_amount, med_id]
     )
+    console.log(inventory_data.rows[0])
+    
     res.send(data.rows[0])
-    console.log([data.rows[0], reminder_data.rows[0], inventory_data.rows[0]])
   } catch (e) {
     console.log(e)
   }
