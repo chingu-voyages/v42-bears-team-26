@@ -3,10 +3,12 @@ import UpComingActivities from './UpComingActivities'
 import Widget from '../../components/widget'
 import Legend from '../../components/LineChart/Legend'
 import LineChart from '../../components/LineChart/LineChart'
+import Reminder from '../../components/Reminder'
 
 export function DashboardPage() {
   return (
     <div className="w-100">
+      <Reminder />
       <Widget
         title="Upcoming activities/Appointments"
         content={<UpComingActivities />}
