@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios, { AxiosError } from 'axios'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import FeaturesSection from './components/FeaturesSection'

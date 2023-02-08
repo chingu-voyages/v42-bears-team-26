@@ -1,4 +1,3 @@
-import { useEffect } from 'preact/hooks'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { AppLayout } from '../layouts/AppLayout'
