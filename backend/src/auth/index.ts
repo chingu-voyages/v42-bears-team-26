@@ -19,7 +19,7 @@ const checkEmail = async (email: string) => {
 // create new user
 
 Auth.post(
-  '/singup',
+  '/register',
   [
     check('email', 'Please input a valid email').isEmail(),
     check(
