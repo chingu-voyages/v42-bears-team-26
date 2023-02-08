@@ -7,6 +7,7 @@ import { TableHead } from '../../components/table/thead'
 import { Form } from './components'
 import Button from '../../components/Button'
 import { BACKEND_URL } from '../../constants'
+import { useAppContext } from '../../contexts/main'
 
 export type MedicationEntry = {
   name: string
@@ -18,11 +19,14 @@ export const MedicationPage = () => {
   const tableHeaders = ['Medication name', 'Dosage', 'Frequency']
 
   const [showModal, setShowModal] = useState(false)
+  const { authToken } = useAppContext()
 
   const [medications, setMedications] = useState<MedicationEntry[]>([])
   const getMedication = async () => {
     try {
-      const result = await axios.get(`${BACKEND_URL}/medications`) // To update URL
+      const result = await axios.get(`${BACKEND_URL}/medications`, {
+        headers: { Authorization: authToken },
+      }) // To update URL
 
       setMedications(result.data.res)
     } catch (error) {

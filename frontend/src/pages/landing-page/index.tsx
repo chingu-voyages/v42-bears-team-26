@@ -10,67 +10,52 @@ import Section_3 from './components/BottomHalfH/Section_3'
 import Section_4 from './components/BottomHalfH/Section_4'
 import { SignInModal } from '../../components/SignIn'
 import { RegisterModal } from '../../components/Register'
-import { BACKEND_URL } from '../../constants'
 import { ErrorModal } from '../../components/ErrorModal'
 import { SuccessModal } from '../../components/SuccessModal'
+import { useAppContext } from '../../contexts/main'
 
 const LandingPage = () => {
   const [showSignInModal, setShowSignInModal] = useState(false)
   const [showRegisterModal, setShowRegisterModal] = useState(false)
-  const [error, setError] = useState<string>()
-  const [success, setSuccess] = useState<string>()
 
-  const handleSignIn = async (email: string, password: string) => {
-    const res = await axios.post(`${BACKEND_URL}/auth/login`, {
-      email,
-      password,
-    })
-    console.log(res)
+  const {
+    error,
+    success,
+    handleRegister,
+    handleSignIn,
+    clearError,
+    clearSuccess,
+  } = useAppContext()
+
+  const onSignIn = (...args: [email: string, password: string]) => {
+    setShowSignInModal(false)
+    handleSignIn(...args)
   }
 
-  const handleRegister = async (
-    firstname: string,
-    lastname: string,
-    email: string,
-    password: string
+  const onRegister = (
+    ...args: [
+      firstname: string,
+      lastname: string,
+      email: string,
+      password: string
+    ]
   ) => {
-    const payload = {
-      firstname,
-      lastname,
-      email,
-      password,
-    }
-
-    try {
-      await axios.post(`${BACKEND_URL}/auth/register`, payload)
-      setSuccess('🌈 Success 🌈')
-    } catch (e) {
-      if (e instanceof AxiosError) {
-        setError(e.response?.data.errors[0].msg)
-      } else {
-        setError('Something went wrong with the request')
-      }
-      setShowRegisterModal(false)
-    }
     setShowRegisterModal(false)
+    handleRegister(...args)
   }
 
   return (
     <div className="font-roboto grid grid-cols-1 grid-rows-10 h-screen">
-      {error && (
-        <ErrorModal onClose={() => setError(undefined)} error={error} />
-      )}
-      {success && (
-        <SuccessModal message={success} onClose={() => setSuccess(undefined)} />
-      )}
+      {error && <ErrorModal onClose={clearError} error={error} />}
+      {success && <SuccessModal message={success} onClose={clearSuccess} />}
       <SignInModal
         show={showSignInModal}
-        onSignIn={handleSignIn}
+        onSignIn={onSignIn}
         onClose={() => setShowSignInModal(false)}
       />
       <RegisterModal
         show={showRegisterModal}
-        onRegister={handleRegister}
+        onRegister={onRegister}
         onClose={() => setShowRegisterModal(false)}
       />
       <Navbar

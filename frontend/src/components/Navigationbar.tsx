@@ -12,6 +12,7 @@ import {
   MdLogout,
   MdMenu,
 } from 'react-icons/md'
+import { useAppContext } from '../contexts/main'
 
 const navItems = [
   {
@@ -47,7 +48,7 @@ const navItems = [
 ]
 
 function Navigationbar() {
-  const navigate = useNavigate()
+  const { handleSignOut } = useAppContext()
 
   return (
     <>
@@ -102,7 +103,7 @@ function Navigationbar() {
             </section>
             <section className="flex flex-row gap-3">
               <MdLogout className="text-2xl cursor-pointer" />
-              <h3 className="cursor-pointer" onClick={() => navigate('/')}>
+              <h3 className="cursor-pointer" onClick={handleSignOut}>
                 Logout
               </h3>
             </section>
