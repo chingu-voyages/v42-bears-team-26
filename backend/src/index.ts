@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import swaggerUI from 'swagger-ui-express'
 import swaggerDocument from '../src/swagger.json'
-import { UserRoute, TestResultRoute, MedicationRoute } from './routes'
+import { UserRoute, TestResultRoute, MedicationRoute, Auth } from './routes'
 import { dbClient } from './db'
 import { isDevelopmentMode } from './utils'
 import bodyParser from 'body-parser'
@@ -16,6 +16,7 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
+app.use('/auth', Auth)
 app.use('/users', UserRoute)
 app.use('/test-results', TestResultRoute)
 app.use('/medications', MedicationRoute)

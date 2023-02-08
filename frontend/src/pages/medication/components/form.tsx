@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { GrClose } from 'react-icons/gr'
 import { MedicationEntry } from '..'
 import Button from '../../../components/Button'
+import { Input } from '../../../components/Input'
+import { Modal } from '../../../components/Modal'
 
 const days = [
   'Sunday',
@@ -21,28 +22,6 @@ const FormFieldLabel = ({ label }: { label: string }) => (
 const FormSection = ({ children }: { children: React.ReactNode }) => {
   return <div className="my-5">{children}</div>
 }
-
-const FormTitle = ({ title }: { title: string }) => (
-  <div className="text-lg font-medium">{title}</div>
-)
-
-const Input = ({
-  value,
-  onChange,
-}: {
-  value: string
-  onChange: (value: string) => void
-}) => (
-  <div>
-    <input
-      className="w-full py-2 px-3 focus:outline-none border-2 border-black  rounded-2xl"
-      type="text"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      required
-    />
-  </div>
-)
 
 const Select = ({
   options,
@@ -104,104 +83,11 @@ export const Form = ({
   }
 
   return (
-    <div className="h-screen w-screen absolute top-0 left-0 bg-secondaryColor_black/[0.6]">
-      <div className=" bg-primaryColor_white fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] p-10 rounded-[40px] border-2">
-        <div className="flex items-center justify-between mb-8">
-          <FormTitle title={title} />
-          <GrClose onClick={onCancel} className="cursor-pointer" />
-        </div>
-        <FormSection>
-          <FormFieldLabel label="Medication name" />
-          <Input
-            value={medicationName}
-            onChange={(value) => setMedicationName(value)}
-          />
-        </FormSection>
-        <FormSection>
-          <FormFieldLabel label="Dosage" />
-          <div className="mb-3">
-            <div className="mb-2 inline-block mr-3">
-              <Select
-                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-                onChange={() => {
-                  return undefined
-                }}
-              />
-            </div>
-            <div className="inline-block mr-3">
-              <Select
-                options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
-                onChange={() => {
-                  return undefined
-                }}
-              />
-            </div>
-            <div className="inline-block">
-              <Select
-                options={['before', 'after']}
-                onChange={() => {
-                  return undefined
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2 items-center w-100">
-            {intakeTime.map((time) => (
-              <div className="flex w-[120px] items-center gap-2" key={time}>
-                <CheckBox
-                  onSelect={(checked) => {
-                    console.log({ intakeTime, checked })
-                  }}
-                  label={time}
-                />
-              </div>
-            ))}
-          </div>
-        </FormSection>
-        <FormSection>
-          <FormFieldLabel label="Frequency" />
-          <div className="mb-2 inline-block mr-3">
-            <Select
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(option) => {
-                console.log(option)
-                setDosage(option as number)
-              }}
-            />
-          </div>
-
-          <div className="inline-block">
-            <Select
-              options={['hourly', 'daily', 'weekly']}
-              onChange={(option) => {
-                setFrequency(option as MedicationEntry['frequency'])
-              }}
-            />
-          </div>
-        </FormSection>
-        <FormSection>
-          <FormFieldLabel label="Days" />
-          <div className="flex flex-wrap gap-2 items-center w-100">
-            {days.map((day) => (
-              <div className="flex w-[120px] items-center gap-2" key={day}>
-                <CheckBox
-                  onSelect={(checked) => {
-                    console.log({ day, checked })
-                  }}
-                  label={day}
-                />
-              </div>
-            ))}
-          </div>
-        </FormSection>
-        <FormSection>
-          <FormFieldLabel label="Additional notification content" />
-          <Input
-            value={additionalContent}
-            onChange={(value) => setAdditionalContent(value)}
-          />
-        </FormSection>
-        <div className="flex justify-center gap-6 mt-10">
+    <Modal
+      title={title}
+      onClose={onCancel}
+      Actions={
+        <>
           <Button
             label="Add"
             onClick={handleSubmit}
@@ -212,8 +98,100 @@ export const Form = ({
             onClick={onCancel}
             className="py-2 px-4 rounded-full text-secondaryColor_black w-[100px] border-secondaryColor_black border-2 bg-primaryColor_white"
           />
+        </>
+      }
+    >
+      <FormSection>
+        <FormFieldLabel label="Medication name" />
+        <Input
+          value={medicationName}
+          onChange={(value) => setMedicationName(value)}
+        />
+      </FormSection>
+      <FormSection>
+        <FormFieldLabel label="Dosage" />
+        <div className="mb-3">
+          <div className="mb-2 inline-block mr-3">
+            <Select
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={() => {
+                return undefined
+              }}
+            />
+          </div>
+          <div className="inline-block mr-3">
+            <Select
+              options={['tablet', 'sachet', 'tablespoon', 'teaspoon']}
+              onChange={() => {
+                return undefined
+              }}
+            />
+          </div>
+          <div className="inline-block">
+            <Select
+              options={['before', 'after']}
+              onChange={() => {
+                return undefined
+              }}
+            />
+          </div>
         </div>
-      </div>
-    </div>
+        <div className="flex flex-wrap gap-2 items-center w-100">
+          {intakeTime.map((time) => (
+            <div className="flex w-[120px] items-center gap-2" key={time}>
+              <CheckBox
+                onSelect={(checked) => {
+                  console.log({ intakeTime, checked })
+                }}
+                label={time}
+              />
+            </div>
+          ))}
+        </div>
+      </FormSection>
+      <FormSection>
+        <FormFieldLabel label="Frequency" />
+        <div className="mb-2 inline-block mr-3">
+          <Select
+            options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+            onChange={(option) => {
+              console.log(option)
+              setDosage(option as number)
+            }}
+          />
+        </div>
+
+        <div className="inline-block">
+          <Select
+            options={['hourly', 'daily', 'weekly']}
+            onChange={(option) => {
+              setFrequency(option as MedicationEntry['frequency'])
+            }}
+          />
+        </div>
+      </FormSection>
+      <FormSection>
+        <FormFieldLabel label="Days" />
+        <div className="flex flex-wrap gap-2 items-center w-100">
+          {days.map((day) => (
+            <div className="flex w-[120px] items-center gap-2" key={day}>
+              <CheckBox
+                onSelect={(checked) => {
+                  console.log({ day, checked })
+                }}
+                label={day}
+              />
+            </div>
+          ))}
+        </div>
+      </FormSection>
+      <FormSection>
+        <FormFieldLabel label="Additional notification content" />
+        <Input
+          value={additionalContent}
+          onChange={(value) => setAdditionalContent(value)}
+        />
+      </FormSection>
+    </Modal>
   )
 }
