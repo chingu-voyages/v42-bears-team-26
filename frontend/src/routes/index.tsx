@@ -6,9 +6,11 @@ import {
   MedicationPage,
   CalendarPage,
   DashboardPage,
+  LandingPage,
 } from '../pages'
 
 export enum EnumRoutes {
+  home = '/home',
   dashboard = '/',
   medication = '/medication',
   testResults = '/test-results',
@@ -18,6 +20,7 @@ export enum EnumRoutes {
 export const AppRoutes = () => {
   return (
     <Routes>
+      <Route path="/home" element={<LandingPage />} />
       <Route element={<AppLayout />}>
         <Route path={EnumRoutes.dashboard} element={<DashboardPage />} />
         <Route path={EnumRoutes.medication} element={<MedicationPage />} />

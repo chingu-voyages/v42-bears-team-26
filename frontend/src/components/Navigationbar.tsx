@@ -55,7 +55,9 @@ function Navigationbar() {
       <nav className="bg-primaryColor_white pl-12 py-12 pr-10 lg:h-screen whitespace-nowrap lg:sticky lg:top-0">
         <div className="grid grid-cols-2 grid-rows-4 lg:flex lg:flex-wrap justify-between lg:flex-col">
           <section className="col-span-1 row-span-1 lg:mb-10">
-            <h1 className="text-2xl">HealthHero</h1>
+            <h1 className="text-2xl">
+              <Link to="/home">HealthHero</Link>
+            </h1>
           </section>
 
           <input

@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../../../components/Button'
+import { useAppContext } from '../../../contexts/main'
 
 function Navbar({
   onSignInSelect,
@@ -8,6 +10,8 @@ function Navbar({
   onSignInSelect: () => void
   onRegisterSelect: () => void
 }) {
+  const { authToken } = useAppContext()
+
   return (
     <>
       <nav className="bg-primaryColor py-4 col-span-1 row-span-1">
@@ -22,18 +26,24 @@ function Navbar({
             <li>Testimonials</li>
             <li>Contact</li>
             <li>
-              <div className="flex flex-row items-center gap-6">
-                <Button
-                  className="secondary1 py-1 px-12"
-                  label="Sign In"
-                  onClick={onSignInSelect}
-                />
-                <Button
-                  className="primary1 py-2 px-12"
-                  label="Create"
-                  onClick={onRegisterSelect}
-                />
-              </div>
+              {!authToken ? (
+                <div className="flex flex-row items-center gap-6">
+                  <Button
+                    className="secondary1 py-1 px-12"
+                    label="Sign In"
+                    onClick={onSignInSelect}
+                  />
+                  <Button
+                    className="primary1 py-2 px-12"
+                    label="Create"
+                    onClick={onRegisterSelect}
+                  />
+                </div>
+              ) : (
+                <li>
+                  <Link to="/">Dashboard</Link>
+                </li>
+              )}
             </li>
           </ul>
         </div>
