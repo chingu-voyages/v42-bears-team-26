@@ -48,7 +48,7 @@ const testimonials: Array<TestimonialType> = [
 
 function Section_1() {
   return (
-    <div className="bg-yellow-50">
+    <div className="bg-white">
       <section id="testimonials" className="min-h-full py-10">
         {/* HEADER */}
         <div className="flex justify-center mx-90">
