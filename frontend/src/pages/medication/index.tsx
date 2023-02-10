@@ -33,8 +33,7 @@ export const MedicationPage = () => {
     try {
       const result = await axios.get(`${BACKEND_URL}/medicine`, {
         headers: { Authorization: authToken },
-      }) // To update URL
-
+      })
       setMedications(result.data.res)
     } catch (error) {
       console.log(error)
