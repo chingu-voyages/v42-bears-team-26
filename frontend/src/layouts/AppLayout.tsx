@@ -5,6 +5,7 @@ import { EnumRoutes } from '../routes'
 import Navigationbar from '../components/Navigationbar'
 
 const pageTitles: { [key in EnumRoutes]: string } = {
+  '/home': '',
   '/': 'Dashboard',
   '/medication': 'Medication tracking',
   '/test-results': 'Documents',

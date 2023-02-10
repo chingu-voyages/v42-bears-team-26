@@ -6,6 +6,7 @@ type TAppContent = {
   authToken?: string
   error?: string
   success?: string
+  user?: User
   handleSignIn: (email: string, password: string) => Promise<void>
   handleSignOut: () => void
   handleRegister: (
@@ -17,11 +18,18 @@ type TAppContent = {
   clearError: () => void
   clearSuccess: () => void
 }
+type User = {
+  id: number
+  firstname: string
+  lastname: string
+  email: string
+}
 
 const AppContext = React.createContext({} as TAppContent)
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [authToken, setAuthToken] = useState<string>()
+  const [user, setUser] = useState<User>()
   const [error, setError] = useState<string>()
   const [success, setSuccess] = useState<string>()
 
@@ -32,7 +40,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         password,
       })
 
-      if (res.data.token) {
+      if (res.data) {
+        setUser({
+          id: res.data.id,
+          firstname: res.data.firstname,
+          lastname: res.data.lastname,
+          email: res.data.email,
+        })
         setAuthToken(res.data.token)
       }
     } catch (e) {
@@ -81,6 +95,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         handleSignOut,
         clearError,
         clearSuccess,
+        user,
       }}
     >
       {children}

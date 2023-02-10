@@ -81,7 +81,13 @@ Auth.post('/login', async (req: express.Request, res: express.Response) => {
           expiresIn: 360000,
         })
 
-        res.json({ ...user, token: accessToken })
+        res.json({
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email,
+          id: user.id,
+          token: accessToken,
+        })
       } else {
         res.status(401).json({
           errors: [
