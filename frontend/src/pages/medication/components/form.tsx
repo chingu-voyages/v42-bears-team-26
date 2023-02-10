@@ -165,7 +165,14 @@ export const Form = ({
           </div>
           <div className="inline-block mr-3">
             <Select
-              options={['pill', 'tablet', 'sachet', 'tablespoon', 'teaspoon']}
+              options={[
+                'pill',
+                'tablet',
+                'capsule',
+                'sachet',
+                'tablespoon',
+                'teaspoon',
+              ]}
               onChange={(option) => {
                 setDosageUnit(option as MedicationEntry['dosage_unit'])
               }}
@@ -186,7 +193,7 @@ export const Form = ({
 
         <div className="inline-block">
           <Select
-            options={['hourly', 'daily', 'weekly']}
+            options={['daily', 'hourly', 'weekly']}
             onChange={(option) => {
               setFrequencyUnit(option as MedicationEntry['frequency_unit'])
             }}
