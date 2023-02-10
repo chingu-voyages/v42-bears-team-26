@@ -26,9 +26,7 @@ const Testimonial = ({
   return (
     <div className="h-84 w-80 mt-5 rounded-md px-2 py-5 text-center bg-primaryColor_white">
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full border-2 border-gray p-4">
-          {icon}
-        </div>
+        <div className="rounded-full border-2 border-gray p-4">{icon}</div>
       </div>
       <p className="font-poppins">{comment}</p>
       <div className="mt-4 mb-4 flex justify-center">
