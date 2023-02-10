@@ -1,6 +1,6 @@
 function Section_4() {
   return (
-    <div className="bg-gray">
+    <div className="bg-primaryColor_gray text-primaryColor_white">
       <section id="footernote" className="ml-20 mr-20 items-center md:flex">
         {/* Footer Note */}
         <div className="mt-2 mb-2 gap-20 md:flex">

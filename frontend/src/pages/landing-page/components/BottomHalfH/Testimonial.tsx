@@ -24,9 +24,9 @@ const Testimonial = ({
   location,
 }: Props) => {
   return (
-    <div className="h-84 w-80 mt-5 rounded-md border-2 border-gray px-2 py-5 text-center">
+    <div className="h-84 w-80 mt-5 rounded-md px-2 py-5 text-center bg-primaryColor_white">
       <div className="mb-4 flex justify-center">
-        <div className="rounded-full border-2 border-gray bg-rose-50 p-4">
+        <div className="rounded-full border-2 border-gray p-4">
           {icon}
         </div>
       </div>

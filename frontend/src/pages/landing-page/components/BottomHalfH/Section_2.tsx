@@ -24,10 +24,10 @@ function Section_2() {
 
   return (
     <a id="chat-with-us">
-      <div className="bg-rose-50">
+      <div>
         <section
           id="contactus"
-          className="ml-20 mr-20 items-center justify-between md:flex pt-4 mb-14 bg-rose-50"
+          className="ml-20 mr-20 items-center justify-between md:flex pt-4 mb-14"
         >
           <div className="relative w-4/6 basis-3/5">
             {/* HEADER */}
