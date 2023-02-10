@@ -18,7 +18,7 @@ const navItems = [
   {
     title: 'dashboard',
     icon: <MdDashboard className="text-2xl" />,
-    to: '/dashboard',
+    to: '/',
   },
   {
     title: 'Medication Tracking',
