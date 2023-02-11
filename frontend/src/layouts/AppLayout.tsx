@@ -5,7 +5,6 @@ import { EnumRoutes } from '../routes'
 import Navigationbar from '../components/Navigationbar'
 import { useAppContext } from '../contexts/main'
 
-
 const pageTitles: { [key in EnumRoutes]: string } = {
   '/home': '',
   '/': 'Dashboard',
@@ -19,8 +18,6 @@ const mapRouteToPageTitle = () => {
   return pageTitles[location.pathname as EnumRoutes]
 }
 
-
-
 export const AppLayout = () => {
   const { user } = useAppContext()
 
@@ -32,7 +29,9 @@ export const AppLayout = () => {
       <div className="col-span-1 row-span-8 lg:col-span-4 lg:row-span-1">
         <TitleBar
           title={mapRouteToPageTitle()}
-          message={`Hi ${user?.firstname} welcome to your HealthHero ${mapRouteToPageTitle()}`}
+          message={`Hi ${
+            user?.firstname
+          } welcome to your HealthHero ${mapRouteToPageTitle()}`}
         />
         <Outlet />
       </div>
