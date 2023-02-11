@@ -8,9 +8,7 @@ import Reminder from '../../components/Reminder'
 export function DashboardPage() {
   return (
     <div className="w-100">
-      <Reminder
-      // reminderList={reminderList}
-      />
+      <Reminder />
       <Widget
         title="Upcoming activities/Appointments"
         content={<UpComingActivities />}
