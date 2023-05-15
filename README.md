@@ -77,7 +77,7 @@ $ git clone https://github.com/chingu-voyages/v42-bears-team-26
 --------
 ### Prototype
 
-[View Prototype]()
+[View Prototype](https://youtu.be/ThMiwnIkHTo)
 
 ### Screenshots
 
